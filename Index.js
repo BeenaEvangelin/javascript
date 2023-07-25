@@ -16,7 +16,7 @@ console.log(typeof Beena);
 
 // learnt let const var
 //  basic operators
-// challeng: (haven't copied fyi)
+// challenge: (haven't copied fyi)
 const massMark = 78;
 const massJohn = 92;
 const heightMark = 1.69;
@@ -95,9 +95,8 @@ console.log(`I'm a ${gender}`);
 // challenge
 const bill = 275;
 const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
-const value = bill + tip;
 console.log(
-  `The bill was ${bill}, the tip was ${tip}, and the total value ${value} `
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip} `
 );
 
 // functions
@@ -175,7 +174,7 @@ console.log(nums.indexOf(3)); // gives the index of the number
 console.log(nums.indexOf(88)); // returns -1 since it's not found in the array
 console.log(nums.includes(1)); // returns a booleans value. true if present else false.
 
-/* TOPICS VOVERED SO FAR
+/* TOPICS cOVERED SO FAR
  values, variables, let const var
  data types
  operators
@@ -187,3 +186,194 @@ console.log(nums.includes(1)); // returns a booleans value. true if present else
  functions -declarations & expressions
  arrow functions
  arrays and array methods*/
+
+//  object methos
+const PersonBeena = {
+  firstName: "Evangelin",
+  lastName: "Gracia",
+  birthYear: 1999,
+  place: "chennai",
+  calcAge: function () {
+    this.age = 2023 - this.birthYear;
+    return this.age;
+  },
+
+  summary: function () {
+    return `${this.firstName} ${this.lastName}  is from ${this.place}`;
+  },
+};
+console.log(PersonBeena.place);
+console.log(PersonBeena.calcAge());
+console.log(PersonBeena.summary());
+
+// for loop
+
+let i = " ";
+for (i = 1; i <= 10; i++) {
+  console.log(`student${i}`); // i++ => i + 1
+}
+// using .length will simply add to the exsisting array which will help us to avoid hard coding the values
+
+const person2 = {
+  firstName: "Fiona",
+  lastName: "Collene",
+  age: 10,
+  place: "assam",
+};
+
+for (let j = 0; j < 2; j++) {
+  console.log(person2[j]);
+}
+
+const years = [1972, 1974, 1999, 2003];
+const ages = [];
+for (let i = 0; i < years.length; i++) {
+  ages.push(2023 - years[i]);
+}
+
+console.log(ages);
+
+//break and continue
+const array1 = [
+  "cyan",
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  "red",
+  "blue",
+  " green",
+  11,
+  12,
+  "black",
+];
+
+for (let i = 0; i < array1.length; i++) {
+  if (typeof array1[i] !== "string") continue;
+  console.log(array1[i], typeof array1[i]); //got string instead
+}
+
+for (let j = 0; j < array1.length; j++) {
+  if (typeof array1[j] === "number") continue;
+  console.log(array1[j], typeof array1[j]); // got string again
+}
+
+for (let k = 0; k < array1.length; k++) {
+  if (typeof array1[k] === "string") continue;
+  console.log(array1[k], typeof array1[k]); // got numbers instead
+}
+
+for (let i = 0; i < array1.length; i++) {
+  if (typeof array1[i] === "number") break;
+  console.log(array1[i], typeof array1[i]); // got string again
+}
+for (let j = 0; j < array1.length; j++) {
+  if (typeof array1[j] === "string") break;
+  console.log(array1[j], typeof array1[j]); // nothing
+}
+
+for (let i = 0; i < array1.length; i++) {
+  if (typeof array1[i] !== "number") continue;
+  console.log(array1[i], typeof array1[i]); //got numbers instead
+}
+
+const nums2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let i = nums2.length - 1; i >= 0; i--) {
+  console.log(nums2[i]);
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`Lerning exercise ${exercise}`);
+
+  for (let sum = 1; sum <= 5; sum++) {
+    console.log(`Learning sum ${sum}`);
+  }
+}
+
+let teacher = 1;
+while (teacher <= 11) {
+  console.log(`This is Teacher ${teacher}`);
+  teacher++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+  console.log(`The number is ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+
+  if (dice === 6) {
+    console.log("Your turn ends..");
+  }
+}
+
+//chalenge
+const calcTip = (bill) => {
+  const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+  return tip;
+};
+console.log(calcTip(100));
+console.log(calcTip(125));
+console.log(calcTip(555));
+console.log(calcTip(44));
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+
+const totals = `[${bills[0] + tips[0]}, ${bills[1] + tips[1]}, ${
+  bills[2] + tips[2]
+}]`;
+console.log(totals);
+
+// challenge
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.BMI = this.mass / (this.height * this.height);
+    return this.fullNameBMI;
+  },
+};
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.BMI = this.mass / (this.height * this.height);
+    return this.BMI;
+  },
+};
+
+mark.calcBMI();
+console.log(mark.BMI);
+
+john.calcBMI();
+console.log(john.BMI);
+
+if (mark.calcBMI() > john.calcBMI()) {
+  console.log(
+    `${mark.fullName}'s BMI ${mark.calcBMI()} is higher than ${
+      john.fullName
+    }'s  ${john.calcBMI()}!`
+  );
+}
+if (john.calcBMI() > mark.calcBMI()) {
+  console.log(
+    `${john.fullName}'s BMI ${john.calcBMI()} is higher than ${
+      mark.fullName
+    }'s  ${mark.calcBMI()}!`
+  );
+} else {
+  console.log("none");
+}
+/*console.warn() 
+console.error() used to find the errors and warnings in the console 
+console.table() for bigger objects*/
