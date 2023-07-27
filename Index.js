@@ -374,6 +374,74 @@ if (john.calcBMI() > mark.calcBMI()) {
 } else {
   console.log("none");
 }
-/*console.warn() 
+/*console.warn() find warnings
 console.error() used to find the errors and warnings in the console 
 console.table() for bigger objects*/
+
+const evelyn = {
+  firstName: "Evelyn",
+  lastName: "Cordelia",
+  birthYear: 2003,
+  findAge: function () {
+    const age = 2023 - this.birthYear;
+    console.log(age);
+    console.log(this); // points to the owner of the object
+  },
+};
+evelyn.findAge();
+
+const noel = {
+  birthYear: 2021,
+};
+
+noel.findAge = evelyn.findAge;
+noel.findAge(); //METHOD BORROWING
+
+//ARGUMENTS
+
+const addNums = function (x, y) {
+  return x + y;
+};
+console.log(addNums(2, 3)); // a normal function gives 5 as the output
+
+const addNum = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addNum(2, 2); // gives an array with the parameters
+
+// PRIMITIVE TYPES
+
+let colour = "black";
+let newColour = colour;
+colour = "blue";
+
+console.log(colour, newColour);
+
+let fruit = "apple";
+let newFruit = fruit;
+fruit = "banana";
+console.log(fruit, newFruit);
+
+const personA = {
+  firstName: "Sheela",
+  lastName: "Paul",
+};
+
+const personB = personA;
+personB.firstName = "Reena";
+
+console.log(personA, personB);
+// It doesn't create a new object in the heap but
+//just a new variable in the stack that holds to the
+//reference of the original object
+
+const personC = {
+  firstName: "Beena",
+  lastName: "Paul",
+};
+
+const personD = Object.assign({}, personC);
+personD.firstName = "Reena";
+
+console.log(personC, personD);
