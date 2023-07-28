@@ -444,4 +444,56 @@ const personC = {
 const personD = Object.assign({}, personC);
 personD.firstName = "Reena";
 
-console.log(personC, personD);
+console.log(personC, personD); // this creates a new object
+
+// Array destructuring
+const arr = [1, 2, 3];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+const [x, y, z] = arr;
+console.log(x, y, z);
+// breaking the array into separate variables
+// the original array isn't distroyed. We are just unpacking the array
+console.log(arr);
+
+// switching variables
+
+const favourites = {
+  favColor: ["blue", "black", "white"],
+  favFood: ["biryani", "pasta", "pizza"],
+  favFruit: ["mango", "apple", "papaya"],
+  select: function (favFood, favFruit, favColor) {
+    return [
+      this.favFood[favFood],
+      this.favFruit[favFruit],
+      this.favColor[favColor],
+    ];
+  },
+};
+
+let [primary, , tertiary] = favourites.favColor;
+console.log(primary, tertiary);
+[primary, tertiary] = [tertiary, primary];
+console.log(primary, tertiary);
+
+const [selectedFood, selectedFruit, selectedColor] = favourites.select(2, 2, 2);
+console.log(selectedFood, selectedFruit, selectedColor);
+
+// destructuring objects
+
+const { favFood, favColor } = favourites;
+console.log(favFood, favColor);
+
+// Mutating objects
+let a1 = 10;
+let b1 = 7;
+const obj = { a1: 22, b1: 23, c1: 76 };
+
+({ a1, b1 } = obj);
+console.log(a1, b1);
+
+// spread operator
+const givenArr = [3, 4, 5];
+const newArr = [1, 2, ...givenArr, 6];
+console.log(newArr);
