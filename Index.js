@@ -497,3 +497,23 @@ console.log(a1, b1);
 const givenArr = [3, 4, 5];
 const newArr = [1, 2, ...givenArr, 6];
 console.log(newArr);
+console.log(...newArr); // spread operator gives the individual elements of an array (unpacking the elements of an array)
+
+const newFavFood = [...favourites.favFood, "Burger"];
+console.log(newFavFood);
+
+// shallow copy of an array
+const names = ["beena", "anand"];
+const newNames = [...names];
+console.log(newNames);
+
+// join 2 arr using spread operator
+const arr1 = ["a", "b", "c"];
+const arr2 = ["d", "e", "f"];
+
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
+
+// rest operator is on the left side
+const [a2, b2, ...others] = [1, 2, 3, 4, 5];
+console.log(a2, b2, others); //packs the elements of an array
