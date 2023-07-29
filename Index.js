@@ -517,3 +517,145 @@ console.log(arr3);
 // rest operator is on the left side
 const [a2, b2, ...others] = [1, 2, 3, 4, 5];
 console.log(a2, b2, others); //packs the elements of an array
+
+//challenge
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmud",
+  players: [
+    [
+      "Never",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnaby", "Lewandowski", "Hummels"],
+  date: "nov 9 th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+const [players1, players2] = game.players;
+console.log(players1, players2);
+const [goalkeeper, ...fieldplayers] = players1;
+console.log(goalkeeper, fieldplayers);
+
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+const playersFinal = [...players1, "Thiago", "Coutinho", "Peristic"];
+console.log(playersFinal);
+
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`); //just players will print the players and not the num scored
+};
+printGoals("Davis", "Muller", "Lewandowski", "Kimich");
+printGoals("Davis", "Muller");
+printGoals(...game.scored);
+
+team1 < team2 && console.log("team1 wins!!");
+
+// optional chaining
+
+console.log(game.odds?.team1); //if odds exsist it'll return the expected result i.e team1 else it'll return undefined
+// this is useful in avoiding a lotta errors
+
+// Reverse an array problem
+let input = [1, 2, 3, 4, 5];
+input.reverse();
+console.log(input);
+
+const reverse = function (array) {
+  let result = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    result.push(array[i]);
+  }
+  return result;
+};
+
+console.log(reverse([1, 2, 3, 4, 5]));
+
+//  star pattern problem
+let n = 4;
+let str = "";
+
+for (let i = 0; i <= n; i++) {
+  for (let j = 0; j < n - i; j++) {
+    str += " ";
+  }
+
+  for (let k = 0; k < 2 * i - 1; k++) {
+    str += "*";
+  }
+
+  str += "\n";
+}
+console.log(str);
+
+// SET
+
+const letters = new Set([
+  "A",
+  "B",
+  "B",
+  "N",
+  "M",
+  "K",
+  "L",
+  "U",
+  "J",
+  "A",
+  "S",
+  "D",
+  "M",
+  "K",
+  "L",
+]);
+console.log(letters); //takes away all the duplicates
+
+console.log(letters.size); // size after removing the duplicates
+console.log(letters.has("L")); // true if present and false if absent
+console.log(letters.has("Z")); // similar to includes method
+letters.add("W");
+letters.delete("D");
+console.log(letters);
+// letters.clear()    clears all items of the set
+
+for (const letter of letters) {
+  console.log(letter); // get the individual elements of the set
+}
+
+const letters2 = ["a", "b", "a", "c", "b"];
+const uniqueLetters2 = [...new Set(letters2)];
+console.log(uniqueLetters2);
+
+console.log(new Set("beena").size);
