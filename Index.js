@@ -659,3 +659,127 @@ const uniqueLetters2 = [...new Set(letters2)];
 console.log(uniqueLetters2);
 
 console.log(new Set("beena").size);
+
+const bioData = new Map();
+bioData.set("firstName", "Beena");
+bioData.set("age", 23);
+bioData.set("status", "single");
+console.log(bioData.set("gender", "female"));
+console.log(bioData.get("age"));
+console.log(bioData.has("age"));
+console.log(bioData.size);
+bioData.delete("status");
+//console.log(bioData.clear)
+console.log(bioData);
+
+// problems
+// Reverse a string
+
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+
+console.log(reverseString("welcome"));
+
+function reversestr(str) {
+  let string = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    string.push(str);
+  }
+  return string;
+}
+
+console.log(reverseString("Paul"));
+
+// REVERSE A STRING BY RECURSION
+
+function reversestr(str1) {
+  let string1 = "";
+
+  if (string1 === "") {
+    return string1;
+  } else {
+    return string1.substring(1) + string1.charAt(0);
+  }
+}
+console.log(reverseString("raj"));
+
+function reverseString(str) {
+  return str === " " ? " " : str.substring(1) + str.charAt(0);
+}
+console.log(reverseString("water"));
+
+// Reverse a string using spread operator
+
+const userName1 = "Anand";
+const revName = [...userName1].reverse().join("");
+console.log(revName);
+
+// Remove white spacs in a string
+
+const colors = "      blue    &    black   ";
+console.log(colors.trim());
+console.log(colors.trimStart());
+console.log(colors.trimEnd());
+
+const phrase = "this is    a      girl";
+console.log(phrase.replace(" ", ""));
+console.log(phrase.replaceAll(" ", ""));
+
+const question = "Where is france?";
+const remSpaces = question.replace(/\s+/g, ""); //also /\s/g, ""
+console.log(remSpaces);
+
+const myGender = " I am female";
+console.log(myGender.replace(/ /g, ""));
+
+// PROBLEM REMOVE DUPLICATE CHARACTERS OF A STRING
+
+const duplicateStr = function (str) {
+  let duplicates = [...new Set(str)];
+  return duplicates;
+};
+
+console.log(duplicateStr("this is a sunny day"));
+
+// PROBLEM EQUALITY OF TWO ARRAYS
+
+const numArray1 = [1, 2, 3, 4, 5, 7, 8, 9, 4, 5, 6, 9];
+const numArray2 = [1, 2, 3, 4, 5, 7, 8, 9, 4, 5, 6, 9];
+numArray1 == numArray2 ? console.log("true") : console.log("false");
+
+const equalityArr = function () {
+  const letterArray1 = ["a", "d", "v", "r", "k"];
+  const letterArray2 = ["a", "d", "p", "r", "k"];
+
+  if (letterArray1.toString() === letterArray2.toString()) {
+    return console.log("both are equal");
+  } else {
+    return console.log("they are not equal");
+  }
+};
+
+equalityArr();
+
+// ANAGRAM PROBLEM
+
+const anagramPrblm = function (str1, str2) {
+  const anagram = function (str) {
+    return str.toLowerCase().split("").sort().join();
+  };
+
+  return anagram(str1) === anagram(str2);
+};
+
+console.log(anagramPrblm("care", "race"));
+console.log(anagramPrblm("Mother In Law", "Hitler Woman")); // gives false as it counts the space between them as well
+console.log(anagramPrblm("car", "far"));
+
+const anagramPrblm1 = function (str1, str2) {
+  const anagram1 = function (str) {
+    return str.toLowerCase().split("").sort().join().remSpaces();
+  };
+
+  return anagram1(str1) === anagram1(str2);
+};
+console.log(anagramPrblm1("Mother In Law", "Hitler Woman"));
