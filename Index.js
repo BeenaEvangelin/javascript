@@ -735,12 +735,23 @@ console.log(myGender.replace(/ /g, ""));
 
 // PROBLEM REMOVE DUPLICATE CHARACTERS OF A STRING
 
-const duplicateStr = function (str) {
+const duplicateStr1 = function (str) {
   let duplicates = [...new Set(str)];
   return duplicates;
 };
+console.log(duplicateStr1("this is a sunny day"));
 
-console.log(duplicateStr("this is a sunny day"));
+// PRINT DUPLICATE  CHARACTERS OF A STRING
+const myStrng = "beena evangelin";
+const setStrng = new Set(myStrng);
+const duplicateStrng = myStrng.split("").filter((letter) => {
+  if (setStrng.has(letter)) {
+    setStrng.delete(letter);
+  } else {
+    return letter;
+  }
+});
+console.log(duplicateStrng);
 
 // PROBLEM EQUALITY OF TWO ARRAYS
 
@@ -775,11 +786,101 @@ console.log(anagramPrblm("care", "race"));
 console.log(anagramPrblm("Mother In Law", "Hitler Woman")); // gives false as it counts the space between them as well
 console.log(anagramPrblm("car", "far"));
 
-const anagramPrblm1 = function (str1, str2) {
-  const anagram1 = function (str) {
-    return str.toLowerCase().split("").sort().join().remSpaces();
-  };
+// this problem can also be solved using if statements
 
-  return anagram1(str1) === anagram1(str2);
+// armstrong number in javascript
+// A number is called an Armstrong number if it is equal to sum of its digits each raised to the power of number of digits in it.
+// For example: 153, 9474, 54748 are some Armstrong numbers.
+
+const armstrongNumber = function (n) {
+  let number = new String(n);
+
+  n = number.length;
+  let output = 0;
+
+  for (let i of number) {
+    output = output + parseInt(i) ** n;
+  }
+
+  if (output == parseInt(number)) {
+    return "yes, it is an armstrong number";
+  } else {
+    return "no, it is not an armstrong number";
+  }
 };
-console.log(anagramPrblm1("Mother In Law", "Hitler Woman"));
+
+console.log(armstrongNumber(1634)); //n = 4
+console.log(armstrongNumber(153)); // n= 3
+// print duplicates from an array
+
+const numbers = [1, 2, 3, 5, 4, 5, 6, 5, 6, 5, 6];
+const set = new Set(numbers);
+
+const duplicates = numbers.filter((item) => {
+  if (set.has(item)) {
+    set.delete(item);
+  } else {
+    return item;
+  }
+});
+console.log(duplicates);
+
+// SUM OF ALL DIGITS OF  A GIVEN NUMBER
+
+// STRING METHODS
+const airline = "Air India";
+console.log(airline[4]);
+console.log(airline.length);
+console.log(airline.indexOf("i"));
+console.log(airline.lastIndexOf("i"));
+console.log(airline.charAt(8));
+console.log(airline.slice(4)); //this is a substring
+console.log(airline.slice(4, 6)); // the end value is not included in the string
+//  length of a substring is the difference between the beginning and the end parameters
+console.log(airline.slice(airline.indexOf("A"), airline.lastIndexOf(" ")));
+console.log(airline.slice(airline.indexOf("A"), airline.indexOf(-1)));
+console.log(airline.slice(4, 6 + 1)); // this includes the end value in the slice method
+console.log(airline.slice(4, -2)); // - gives the last index
+console.log(new String("Beena")); // it gives an object
+console.log(typeof new String("Beena"));
+console.log(new String("Beena").slice(2));
+console.log(typeof new String("Beena").slice(2));
+const string = "this is a beautiful place in chennai";
+console.log(string.replace(/chennai/g, "bangalore"));
+console.log(airline.includes("i")); // gives a boolean value
+console.log(airline.startsWith("ir")); // boolean value
+console.log(airline.endsWith("a")); // boolean value
+
+const capitalizeNames = function (names) {
+  let userName = names.split(" ");
+  let capitalNames = [];
+  for (const n of userName) {
+    capitalNames.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  return capitalNames.join(", ");
+};
+console.log(capitalizeNames("veena priya sarah"));
+
+// padding
+const playerName = "dhoni";
+const resultantName = playerName.padStart(10, "*").padEnd(20, "*");
+console.log(resultantName);
+
+const creditCardNumber = function (number) {
+  let str = number + ""; // converts a number to a string
+  console.log(typeof str);
+  let cardNum = str.slice(-4);
+  return cardNum.padStart(11, "*");
+};
+
+console.log(creditCardNumber(345790897262));
+
+const noOfStars = function (num) {
+  return `There are ${num} number of stars ${"*".repeat(num)} in the sky}`;
+};
+
+console.log(noOfStars(5));
+console.log(noOfStars(8));
+console.log(noOfStars(3));
+console.log(noOfStars(12));
+console.log(noOfStars(16));
