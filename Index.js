@@ -884,3 +884,16 @@ console.log(noOfStars(8));
 console.log(noOfStars(3));
 console.log(noOfStars(12));
 console.log(noOfStars(16));
+
+const ticketBooking = function (flightNo, tickets = 1, amount = 250 * tickets) {
+  const confirmBooking = [];
+  const booking = {
+    flightNo,
+    tickets,
+    amount,
+  };
+  console.log(booking);
+  confirmBooking.push(booking);
+};
+
+ticketBooking("AI112", 2);
