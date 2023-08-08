@@ -1031,4 +1031,54 @@ console.log(array2.at(3));
 console.log(array2[array2.length - 1]);
 console.log(array2.slice(-1)); // gives the output in the form of an array
 console.log(array2.slice(-1)[0]); // removes the []
-console.log(array2.at(-1));
+console.log(array2.at(-1)); // at method removes the square brackets automatically
+const subject = "english";
+console.log(subject.at(2));
+
+// forEach & forOF
+console.log("**************forEach******************");
+const numberArr1 = [1, 2, 3, 6, 7, 9, 3, 4, -2, -5, -9, 8, -1];
+numberArr1.forEach(function (num, i, arr) {
+  // for forEach we give the current element, index and the entire array as the parameters as it passes all the three in the loop
+  if (num > 5) {
+    console.log(`No: ${i + 1} => the num ${num} is greater than 5 `);
+  } else {
+    console.log(`No: ${i + 1} => the number ${Math.abs(num)} is less than 5`);
+  }
+});
+
+console.log("**************forOf******************");
+for (const [i, num] of numberArr1.entries()) {
+  //for forOf we give the index and the element as the parameters
+  if (num > 5) {
+    console.log(`No: ${i + 1} =>  the num ${num} is greater than 5 `);
+  } else {
+    console.log(`No: ${i + 1} =>  the number ${Math.abs(num)} is less than 5`);
+  }
+}
+
+// MAP METHOD TO LOOP OVER ARRAYS
+
+ruppeeAmt = [35, 66, 78, 98, 32, 12, 50, 16];
+ruppeetoDollar = 0.012;
+
+const ruppeeToDollarConvertor = ruppeeAmt.map(function (ruppeeAmt) {
+  return ruppeeAmt * ruppeetoDollar;
+});
+
+console.log(ruppeeToDollarConvertor);
+
+const ruppeeToDollarConvertor1 = ruppeeAmt.map(
+  (ruppeeAmt) => ruppeeAmt * ruppeetoDollar
+);
+
+console.log(ruppeeToDollarConvertor1);
+
+const selectedNums = [1, 3, 2, 8, 66, 45, 29, 21, 52, 9, 4, 11, 65, 99, 1, 40];
+
+const requiredNum = selectedNums.find((num) => num > 10);
+console.log(requiredNum); // find method returns the first element that matches the condition
+
+//  FindIndex method gives the index of the found element
+const requiredIndex = selectedNums.findIndex((num) => num > 20);
+console.log(requiredIndex);
