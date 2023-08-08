@@ -825,8 +825,6 @@ const duplicates = numbers.filter((item) => {
 });
 console.log(duplicates);
 
-// SUM OF ALL DIGITS OF  A GIVEN NUMBER
-
 // STRING METHODS
 const airline = "Air India";
 console.log(airline[4]);
@@ -897,3 +895,140 @@ const ticketBooking = function (flightNo, tickets = 1, amount = 250 * tickets) {
 };
 
 ticketBooking("AI112", 2);
+
+// functions accepting functions (callback functions)
+
+const oneWord = function (str) {
+  return str.replace(/ /g, "").toLowerCase();
+};
+
+const UpperFirstWord = function (str) {
+  const [firstWord, ...others] = str.split(" ");
+  return [firstWord.toUpperCase(), ...others].join(" ");
+};
+
+const requiredPhrase = function (str, fn) {
+  console.log(`Original phrase : ${str}`);
+  console.log(`Required phrase : ${fn(str)}`);
+  console.log(`Transformed by : ${fn.name}`);
+};
+
+requiredPhrase("Javascript is fun", oneWord);
+requiredPhrase("Javascript is fun", UpperFirstWord);
+
+const greet = function () {
+  console.log("hi");
+};
+
+//document.body.addEventListener("click", greet);
+["beena", "benitta", "evelyn"].forEach(greet);
+
+// function returning functions (opp of callback)
+
+const greeting = function (greet) {
+  return function (name) {
+    console.log(`${greet} ${name}`);
+  };
+};
+
+const greetHi = greeting("hi");
+greetHi("beena"); //or
+
+greeting("hi")("beena");
+
+// returning a arrow function
+const greetPerson = (greet) => (name) => console.log(`${greet} ${name}`);
+greetPerson("hello")("brother");
+
+// PROBLEMS  SUM OF ALL DIGITS OF A GIVEN NUMBER
+
+let gnNum = 1234;
+let sum1 = 0;
+while (gnNum) {
+  sum1 += gnNum % 10; // reminder is 4 then 3 then 2 and then last digit is < 10
+  gnNum = Math.floor(gnNum / 10); //9/ 10  = 0.9 , floor value is 1 so 9 +1 = 10
+}
+
+console.log(sum1);
+
+const addNumber = function (num) {
+  let sum = 0;
+
+  while (num) {
+    sum += num % 10;
+    num = Math.floor(num / 10);
+  }
+  console.log(sum);
+};
+addNumber(12345);
+
+const addTheDigits = (num) => {
+  const numArr = num.toString().split("");
+  let sum = numArr.reduce((a, b) => Number(a) + Number(b));
+
+  return sum;
+};
+
+console.log(addTheDigits(123455));
+
+// bind method
+// borrows a functions and creates a copy
+// this keyword replaced with the object passed in as an argument
+
+let person1 = {
+  name: "sheeja",
+};
+
+let person3 = {
+  name: "preetha",
+};
+
+let person4 = {
+  name: "sheela",
+};
+const actions = function (action) {
+  console.log(this.name, "is", action);
+};
+
+dance = actions.bind(person1, "dancing");
+sing = actions.bind(person3, "singing");
+write = actions.bind(person4, "writing");
+
+dance();
+sing();
+write();
+
+//  IIFE immediately invoked functional expression
+
+(function () {
+  console.log("just a function");
+})();
+
+// ARRAY METHODS
+
+const favLetters = ["a", "l", "u", "o", "d", "t", "j", "c"];
+console.log(favLetters.slice(2, 5)); // end parameter is not included
+console.log(favLetters.slice(-2)); // slice method doesn't mutate the original array
+console.log(favLetters.slice()); // gives a shallow copy of the original method
+
+console.log(favLetters.splice(2, 5)); // splice method mutates the original array
+console.log(favLetters); // the original array after mutation
+
+const favLetters1 = ["a", "l", "u", "o", "d", "t", "j", "c", "v"];
+console.log(favLetters1.reverse()); // mutates the array
+const favNums = [3, 5, 9, 8, 1, 3];
+const resultArr = favLetters1.concat(favNums);
+console.log(resultArr);
+console.log(favNums.join(""));
+
+//  NEW AT METHOD
+
+const array2 = ["A", "B", "U", "H"];
+console.log(array2[3]);
+console.log(array2.at(3));
+
+//TO GET THE LAST ELEMENT OF AN ARRAY
+console.log(array2[array2.length - 1]);
+console.log(array2.slice(-1)); // gives the output in the form of an array
+console.log(array2.slice(-1)[0]); // removes the []
+console.log(array2.at(-1));
