@@ -1035,9 +1035,10 @@ console.log(array2.at(-1)); // at method removes the square brackets automatical
 const subject = "english";
 console.log(subject.at(2));
 
+const numberArr1 = [1, 2, 3, 6, 7, 9, 3, 4, -2, -5, -9, 8, -1];
 // forEach & forOF
 console.log("**************forEach******************");
-const numberArr1 = [1, 2, 3, 6, 7, 9, 3, 4, -2, -5, -9, 8, -1];
+
 numberArr1.forEach(function (num, i, arr) {
   // for forEach we give the current element, index and the entire array as the parameters as it passes all the three in the loop
   if (num > 5) {
@@ -1046,6 +1047,22 @@ numberArr1.forEach(function (num, i, arr) {
     console.log(`No: ${i + 1} => the number ${Math.abs(num)} is less than 5`);
   }
 });
+//  SORTING AN ARRAY
+// ascending order
+console.log(
+  numberArr1.sort((num1, num2) => {
+    if (num1 > num2) return 1;
+    if (num1 < num2) return -1;
+  })
+);
+
+// descending order
+console.log(
+  numberArr1.sort((num1, num2) => {
+    if (num1 > num2) return -1;
+    if (num1 < num2) return 1;
+  })
+);
 
 console.log("**************forOf******************");
 for (const [i, num] of numberArr1.entries()) {
@@ -1082,3 +1099,41 @@ console.log(requiredNum); // find method returns the first element that matches 
 //  FindIndex method gives the index of the found element
 const requiredIndex = selectedNums.findIndex((num) => num > 20);
 console.log(requiredIndex);
+
+console.log(selectedNums.includes(9));
+
+console.log(selectedNums.some((num) => num < 50)); // gives a boolean value based upon a condition. return true even if one element satisfies the condition
+console.log(selectedNums.every((num) => num < 0)); // returns true only if every element satisfies the condition
+
+// flat method
+// they are used to flatten the array in arrays
+const Numbers = [
+  1,
+  6,
+  33,
+  75,
+  94,
+  [235, 345, [45, 89, 23], 56, 222],
+  89,
+  235,
+  [678, 22, [16, 2, 7], 33],
+  78,
+];
+
+console.log(Numbers.flat()); // it just goes one step deep
+// to flattern 3d or 4d arrays and so on then we should specify it
+console.log(Numbers.flat(2));
+
+// flatmap combines the flat and map method together
+
+const fillArr = [1, 4, 2, 4, 6, 8, 1, 7, 9];
+console.log(fillArr.fill(1));
+const arrfill = fillArr.fill(0, 2, 4);
+console.log(arrfill);
+
+const x1 = new Array(5);
+console.log(x1);
+const y1 = Array.from({ length: 4 }, () => 6);
+console.log(y1);
+const z1 = Array.from({ length: 5 }, (crr, i) => i + 1);
+console.log(z1);
