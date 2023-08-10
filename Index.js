@@ -1125,15 +1125,125 @@ console.log(Numbers.flat()); // it just goes one step deep
 console.log(Numbers.flat(2));
 
 // flatmap combines the flat and map method together
-
+// FILL METHOD
 const fillArr = [1, 4, 2, 4, 6, 8, 1, 7, 9];
 console.log(fillArr.fill(1));
 const arrfill = fillArr.fill(0, 2, 4);
 console.log(arrfill);
-
+// FROM METHOD
 const x1 = new Array(5);
 console.log(x1);
 const y1 = Array.from({ length: 4 }, () => 6);
 console.log(y1);
 const z1 = Array.from({ length: 5 }, (crr, i) => i + 1);
 console.log(z1);
+
+// PROBLEM : TO GENERATE 100 DICE ROLLS
+
+const diceRolls = function (array) {
+  console.log(Array.from({ length: 100 }, (curr, i) => i + 1));
+};
+
+diceRolls();
+
+// NUMBERS, DATES, INTEGERS, TIMERS
+
+// convert a string to a number
+console.log(Number("10"));
+console.log(+"12");
+console.log(16);
+console.log(Number.parseInt("11rem")); // parseInt is applicable only if the string begins with a number
+console.log(Number.parseInt("no:10"));
+console.log(Number.parseFloat("10.01"));
+console.log(Number.parseFloat("no:10.0008")); // applicable if the string begins with a number
+console.log(Number.parseInt("23.999")); // parseInt doesn't give the decimal value
+
+// check whether a number is a number
+console.log(Number.isFinite("70"));
+console.log(Number.isFinite(23));
+console.log(Number.isFinite(33 / 0)); //infinite value is not finite
+
+// check whether it is a value is a integer
+console.log(Number.isInteger("70"));
+console.log(Number.isInteger(23));
+console.log(Number.isInteger(33 / 0));
+
+// Rounding
+console.log(Math.sqrt(25));
+console.log(36 ** (1 / 2)); //sqrt
+console.log(27 ** (1 / 3)); //cube rt
+
+// max and min
+
+console.log(Math.max(1, 2, 3, 4, 5));
+console.log(Math.max(1, 2, 3, 4, "5"));
+console.log(Math.max(1, 2, 3, 4, "5px"));
+console.log(Math.min(1, 2, 3, 4, 5));
+
+// calc rdius of  a circle
+
+console.log(Math.PI * Number.parseFloat("10px") ** 2);
+
+// generate a random value
+console.log(Math.trunc(Math.random() * 10 + 1));
+
+const randomNum = (min, max) =>
+  Math.trunc(Math.random() * (max - min) + 1) + min;
+console.log(randomNum(1, 100));
+
+// rounding numbers
+console.log(Math.round(5.2));
+console.log(Math.round(5.8));
+
+console.log(Math.ceil(5.2));
+console.log(Math.ceil(5.8));
+
+console.log(Math.floor(5.2));
+console.log(Math.floor(5.8));
+
+console.log(Math.trunc(-5.2));
+console.log(Math.floor(-5.8)); // floor is better than trunc as it is more stable in rounding the negative integers
+
+// rounding decimals
+console.log((5.5).toFixed(0));
+console.log((5.5).toFixed(3));
+console.log((5.5987).toFixed(2));
+// to fixed generally gives a string so you can convert using
+console.log(+(5.519).toFixed(2));
+
+// bigint: large integers which are difficult to calculate
+
+console.log(21398924024989279289802810821n); // without a 'n' it gives a decimal value
+console.log(BigInt(89876651));
+// sqrt does not work in bigint
+
+// date
+const now = new Date();
+console.log(now); //numeric value gives in numeric whereas long gives the whole in string format
+
+const future = new Date(2023, 1, 20, 14, 22, 40);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay()); //gives the day of the week
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.getMilliseconds());
+console.log(future.toISOString());
+
+const calcDatePassed = (date1, date2) => {
+  const resultDate = Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+  return resultDate;
+};
+const reqDate = calcDatePassed(new Date(2023, 2, 1), new Date(2023, 3, 1));
+console.log(reqDate);
+
+// SET TIMEOUT & SET INTERVAL
+setTimeout(() => console.log("Have a great day!"), 5000);
+
+/*setInterval(function () {
+  const now = new Date();
+  console.log(now);
+}, 1000);*/
