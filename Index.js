@@ -1241,9 +1241,48 @@ const reqDate = calcDatePassed(new Date(2023, 2, 1), new Date(2023, 3, 1));
 console.log(reqDate);
 
 // SET TIMEOUT & SET INTERVAL
-setTimeout(() => console.log("Have a great day!"), 5000);
+setTimeout(() => console.log("Have a great day!"), 3000);
 
 /*setInterval(function () {
   const now = new Date();
   console.log(now);
 }, 1000);*/
+
+// PROBLEM : FIND SECOND LARGEST NUMBER IN AN INTEGER ARRAY
+// below method is not possible for numbers > 9
+const intArray = [1, 5, 3, 8, 9, 6, 7, 2, 4];
+const sortedArr = intArray.sort();
+console.log(sortedArr);
+const secondLargestInt = sortedArr.slice(-2, -1);
+console.log(secondLargestInt);
+
+// below method is available for larger integers
+const intArray2 = [19, 20, 2, 3, 5, 6, 1];
+const secondLargestInteger = intArray2.sort((num1, num2) => {
+  if (num1 > num2) {
+    return 1;
+  }
+  if (num2 > num1) {
+    return -1;
+  }
+});
+
+console.log(secondLargestInteger);
+const resultantInt = secondLargestInteger.slice(-2, -1);
+console.log(resultantInt);
+
+// HOW TO PERFORM MATRIX OPERATION IN JAVASCRIPT
+
+const mA = matrix([
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+]);
+const mB = matrix([
+  [1, 1, 1],
+  [2, 2, 2],
+  [3, 3, 3],
+]);
+
+const addMat = mA.add(mB);
+console.log(addMat);
