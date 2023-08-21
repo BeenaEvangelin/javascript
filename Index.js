@@ -1,9 +1,9 @@
 "use Strict";
 /*let str = "beena";
 if (str === "beena") {
-  alert("she is good"); //renders on the browser
+  alert("she is good"); // alert renders on the browser
 }*/
-// console.log("she is good") renders on the console
+// console.log("she is good") console.log renders on the console
 
 // learnt about data types
 
@@ -12,11 +12,11 @@ console.log(typeof personName);
 
 let Beena = true;
 console.log(Beena);
-console.log(typeof Beena);
+console.log(typeof Beena); // it gives the type like string, object, boolean, number, array etc
 
 // learnt let const var
 //  basic operators
-// challenge: (haven't copied fyi)
+// challenge:
 const massMark = 78;
 const massJohn = 92;
 const heightMark = 1.69;
@@ -50,7 +50,7 @@ to code"
 /*console.log("Beena
 loves 
 to code")  
-we do get an error*/
+will give an error*/
 
 console.log(`Beena
 loves 
@@ -152,14 +152,14 @@ const dates = new Array(3, 5, 11, 16, 88); // another way of writing arrays usin
 console.log(dates);
 
 const nums = [1, 2, 3, 4, 5];
-nums[3] = 6;
+nums[3] = 6; // here 3 is the index so the num 4 in 4th position is changed to 6
 console.log(nums);
 console.log(nums[1]);
 
 // array methods
 
 const numPush = nums.push(6);
-console.log(numPush);
+console.log(numPush); // gives the number which we were pushing
 console.log(nums); // pushes to the exsisting array
 nums.unshift(3);
 console.log(nums); //adds to the beginning of the array
@@ -1273,16 +1273,282 @@ console.log(resultantInt);
 
 // HOW TO PERFORM MATRIX OPERATION IN JAVASCRIPT
 
-const mA = matrix([
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-]);
-const mB = matrix([
+const matArr = [1, 3, 4, 7];
+const addMatArr = function () {
+  let sumArr = 0;
+  matArr.forEach((el) => {
+    sumArr += el;
+  });
+
+  console.log(sumArr);
+};
+addMatArr();
+
+const twoDimArr = [
   [1, 1, 1],
   [2, 2, 2],
   [3, 3, 3],
-]);
+];
 
-const addMat = mA.add(mB);
-console.log(addMat);
+const add2DArr = function () {
+  let result = 0;
+  for (let i = 0; i < twoDimArr.length; i++) {
+    twoDimArr[i].forEach((el) => {
+      result += el;
+    });
+  }
+  console.log(result);
+};
+add2DArr();
+
+const threeDimArr = [
+  [
+    [1, 1, 1],
+    [2, 2, 2],
+  ],
+  [
+    [3, 3, 3],
+    [4, 4, 4],
+  ],
+  [
+    [5, 5, 5],
+    [6, 6, 6],
+  ],
+];
+
+const add3DArr = function () {
+  let result = 0;
+  for (i = 0; i < threeDimArr.length; i++) {
+    threeDimArr[i].forEach((el) => {
+      for (j = 0; j < threeDimArr.length; j++) {
+        result += el[j];
+      }
+    });
+  }
+  console.log(result);
+};
+
+add3DArr();
+
+// OBJECT ORIENTED PROGRAMMING
+
+// constructor function => difference from the regular function is that it has a new keyword
+const enteredPerson = function (firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+};
+const anand = new enteredPerson("anand", "ravi", 23);
+console.log(anand);
+console.log(anand instanceof enteredPerson);
+
+// methods of a constructor:
+/*1. new {} is created
+2. function is called, this object is created; this = {} ; this keyword is set
+3. {} link to a prototype
+4. function automatically return {}*/
+
+// prototypes
+console.log(enteredPerson.prototype); // it gives the prototype object
+enteredPerson.prototype.personBirthyear = function () {
+  console.log(2023 - this.age);
+};
+anand.personBirthyear();
+
+//  We can also link properties to prototypes
+
+enteredPerson.city = "Chennai";
+console.log(anand);
+console.log(anand.hasOwnProperty("age"));
+console.log(anand.hasOwnProperty("city")); // false as it is not directly linked into the object but in the form of a constructor
+
+// ES-6 class
+class personCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  calcAge() {
+    console.log(2023 - this.birthYear);
+  }
+}
+const preetha = new personCl("preetha", 2000);
+console.log(preetha);
+preetha.calcAge();
+
+// GETTERS AND SETTERS
+const personAccount = {
+  owner: "Beena",
+  amountEntered: [400, 500, 390, 50000, 1234560, 780, 40000],
+
+  get amount() {
+    return this.amountEntered.slice(-1);
+  },
+
+  set amount(amt) {
+    return this.amountEntered.push(amt);
+  },
+};
+console.log(personAccount.amount); // we got the required value 40000
+personAccount.amount = 100;
+console.log(personAccount.amountEntered); // we set 100 to the array
+
+// MATRIX PROBLEMS
+const repMatrix = function () {
+  let gnMatrix = [
+    [1, 1, 1],
+    [1, 1, 1],
+    [1, 1, 1],
+  ];
+
+  for (let i = 1; i < gnMatrix.length; i++) {
+    if (gnMatrix.indexOf([i]) !== 0) {
+      for (let j = 1; j < gnMatrix.length; j++) {
+        if (gnMatrix.indexOf([j]) !== 0) {
+          gnMatrix[i][j] = 0;
+        } else {
+          gnMatrix[i][j] = 1;
+        }
+      }
+    }
+  }
+  console.log(gnMatrix);
+};
+
+repMatrix();
+
+const repMatrix1 = function () {
+  let gnMatrix = [
+    [1, 1, 1],
+    [1, 1, 1],
+    [1, 1, 1],
+  ];
+
+  for (let i = 1; i < gnMatrix.length; i++) {
+    for (let j = 1; j < gnMatrix.length; j++) {
+      if (i === 0 || j === 0) {
+        continue;
+      } else {
+        gnMatrix[i][j] = 0;
+      }
+    }
+  }
+  console.log(gnMatrix);
+};
+
+repMatrix1();
+
+//ADDITION OF TWO MATRIX
+let matA = [
+  [1, 1, 1],
+  [2, 2, 2],
+  [3, 3, 3],
+];
+let matB = [
+  [4, 4, 4],
+  [5, 5, 5],
+  [6, 6, 6],
+];
+
+const addMatrices = function (mat1, mat2) {
+  let newMatrix = [];
+  for (let i = 0; i < mat1.length; i++) {
+    newMatrix[i] = [];
+    for (let j = 0; j < mat1[i].length; j++) {
+      newMatrix[i][j] = mat1[i][j] + mat2[i][j];
+    }
+  }
+
+  return newMatrix;
+};
+
+console.log(addMatrices(matA, matB));
+
+// subtraction of matrices
+
+let subMat1 = [
+  [5, 5, 5],
+  [4, 4, 4],
+  [3, 3, 3],
+];
+
+let subMat2 = [
+  [3, 3, 3],
+  [2, 2, 2],
+  [1, 1, 1],
+];
+
+const subtractMatrices = function (mat1, mat2) {
+  let newMat = [];
+  for (let i = 0; i < mat1.length; i++) {
+    newMat[i] = [];
+    for (let j = 0; j < mat1.length; j++) {
+      newMat[i][j] = subMat1[i][j] - subMat2[i][j];
+    }
+  }
+  return newMat;
+};
+
+console.log(subtractMatrices(subMat1, subMat2));
+
+// multiplication of matrices
+let multiMat1 = [
+  [2, 3, 4],
+  [5, 6, 7],
+  [8, 9, 1],
+];
+
+let multiMat2 = [
+  [2, 3, 1],
+  [2, 3, 1],
+  [2, 3, 1],
+];
+
+const multiplyMatrices = function (mat1, mat2) {
+  let newMultiMat = [];
+  for (let i = 0; i < mat1.length; i++) {
+    newMultiMat[i] = [];
+    for (let j = 0; j < mat1.length; j++) {
+      newMultiMat[i][j] = mat1[i][j] * mat2[i][j];
+    }
+  }
+  return newMultiMat;
+};
+
+console.log(multiplyMatrices(multiMat1, multiMat2));
+
+let transposeMat = [
+  [1, 1, 1],
+  [2, 2, 2],
+  [3, 3, 3],
+];
+
+// transpose matrix
+const transposeMatrix = function (mat) {
+  let result = [];
+  for (let i = 0; i < mat[0].length; i++) {
+    let newArr = [];
+    for (let j = 0; j < mat.length; j++) {
+      newArr.push(mat[j][i]);
+    }
+    result.push(newArr);
+  }
+  return result;
+};
+
+console.log(transposeMatrix(transposeMat));
+
+// count occurance of a string
+const countChar = function (str) {
+  let count = [];
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i].toLowerCase();
+    if (count[char] > 0) {
+      count[char]++;
+    } else {
+      count[char] = 1;
+    }
+  }
+  return count;
+};
+console.log(countChar("HelloWorld"));
