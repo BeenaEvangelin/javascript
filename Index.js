@@ -168,24 +168,11 @@ nums.pop();
 console.log(nums); // removes the last item in the array
 
 nums.shift();
-console.log(nums); // removes the first item opf the array
+console.log(nums); // removes the first item of the array
 
 console.log(nums.indexOf(3)); // gives the index of the number
 console.log(nums.indexOf(88)); // returns -1 since it's not found in the array
 console.log(nums.includes(1)); // returns a booleans value. true if present else false.
-
-/* TOPICS cOVERED SO FAR
- values, variables, let const var
- data types
- operators
- strings, template literals
- type conversion and coercion
- booleans
- == ===
- switch, ternary
- functions -declarations & expressions
- arrow functions
- arrays and array methods*/
 
 //  object methos
 const PersonBeena = {
@@ -384,7 +371,7 @@ const evelyn = {
   birthYear: 2003,
   findAge: function () {
     const age = 2023 - this.birthYear;
-    console.log(age);
+    console.log(age); //points to the age
     console.log(this); // points to the owner of the object
   },
 };
@@ -395,7 +382,7 @@ const noel = {
 };
 
 noel.findAge = evelyn.findAge;
-noel.findAge(); //METHOD BORROWING
+noel.findAge(); //METHOD BORROWING : a function or method used in one object can be borrowed to the other object
 
 //ARGUMENTS
 
@@ -1540,7 +1527,7 @@ console.log(transposeMatrix(transposeMat));
 
 // count occurance of a string
 const countChar = function (str) {
-  let count = [];
+  let count = {};
   for (let i = 0; i < str.length; i++) {
     let char = str[i].toLowerCase();
     if (count[char] > 0) {
@@ -1552,3 +1539,95 @@ const countChar = function (str) {
   return count;
 };
 console.log(countChar("HelloWorld"));
+
+//find largest number less than a given number and without a given digit
+// If 145 is the given number and 4 is the given digit,
+//then you should find the largest number less than 145 such that it should not contain 4 in it.
+//In this case, 139 will be the answer.
+
+function findLargestNumberWithoutDigit(givenNumber, givenDigit) {
+  for (let i = givenNumber - 1; i > 0; i--) {
+    if (i.toString().indexOf(givenDigit.toString()) === -1) {
+      return i;
+    }
+  }
+  return -1; // If no such number is found
+}
+
+const givenNumber = 145;
+const givenDigit = 4;
+const resultNum = findLargestNumberWithoutDigit(givenNumber, givenDigit);
+console.log(resultNum);
+
+// find all pairs of elements in an array whose sum is equal to given number
+//if {4, 5, 7, 11, 9, 13, 8, 12} is an array and 20 is the given number,
+// then you have to find all pairs of elements in this array whose sum must be 20.
+//  In this example, (9, 11), (7, 13) and (8, 12) are such pairs whose sum is 20.
+
+const getPairs = function () {
+  const array = [4, 5, 7, 11, 9, 13, 8, 12];
+  const givenNo = 20;
+
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] + array[j] == givenNo) {
+        console.log([array[i], array[j]]);
+      }
+    }
+  }
+};
+
+getPairs();
+
+// How to find continuous sub array whose sum is equal to given number
+
+//If {12, 5, 31, 9, 21, 8} is the given array and 45 is the given number,
+//then you have to find continuous sub array in this array such that whose elements add up to 45.
+//In this case, {5, 31, 9} is such sub array whose elements add up to 45.
+
+let gnArr = [12, 5, 31, 9, 21, 8];
+let gnNumber = 45;
+const sum = (gnArr) => gnArr.reduce((a, b) => a + b); // total sum of the array
+// reduces the array into a single value
+const getArr = function (arr, num) {
+  let resArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let arr1 = [];
+    for (let j = i; j < arr.length; j++) {
+      arr1.push(arr[j]);
+      //console.log(arr1);
+      // each element is pushed into the arr1 array
+      if (sum(arr1) === num) {
+        resArr.push([...arr1]);
+      }
+    }
+  }
+  return resArr;
+};
+
+console.log(getArr(gnArr, gnNumber));
+
+// to check whether a number is binary or not
+
+const isBinary = function (num) {
+  const digits = String(num)
+    .split("")
+    .map((num) => Number(num)); // converting a number to an array
+
+  for (let i of digits) {
+    if (i !== 0 && i !== 1) return false;
+  }
+  return true;
+};
+console.log(isBinary(10010111899));
+
+function isArrayBool(array) {
+  for (var i of array) {
+    if (i !== 0 && i !== 1) return false;
+  }
+  return true;
+}
+
+console.log(isArrayBool([1, 0, 0, 0, 1])); // true
+console.log(isArrayBool([1])); // true
+console.log(isArrayBool([2, 3, 0])); // false
