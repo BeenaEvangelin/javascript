@@ -1,4 +1,5 @@
 "use Strict";
+
 /*let str = "beena";
 if (str === "beena") {
   alert("she is good"); // alert renders on the browser
@@ -270,12 +271,15 @@ for (let i = 0; i < array1.length; i++) {
   console.log(array1[i], typeof array1[i]); //got numbers instead
 }
 
+// to print numbers in the reverse order
+
 const nums2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 for (let i = nums2.length - 1; i >= 0; i--) {
   console.log(nums2[i]);
 }
 
+// loop in loop
 for (let exercise = 1; exercise < 4; exercise++) {
   console.log(`Lerning exercise ${exercise}`);
 
@@ -284,13 +288,15 @@ for (let exercise = 1; exercise < 4; exercise++) {
   }
 }
 
+// while loop
+
 let teacher = 1;
 while (teacher <= 11) {
   console.log(`This is Teacher ${teacher}`);
   teacher++;
 }
 
-let dice = Math.trunc(Math.random() * 6) + 1;
+let dice = Math.trunc(Math.random() * 6) + 1; //Math.random() gives a number randomly; Math.tunc() gives a whole value
 
 while (dice !== 6) {
   console.log(`The number is ${dice}`);
@@ -338,6 +344,7 @@ const john = {
     return this.BMI;
   },
 };
+//  a function or method can be implemented in an object and the property can be assessed using the this keyword
 
 mark.calcBMI();
 console.log(mark.BMI);
@@ -416,7 +423,7 @@ const personA = {
 };
 
 const personB = personA;
-personB.firstName = "Reena";
+personB.firstName = "Leena";
 
 console.log(personA, personB);
 // It doesn't create a new object in the heap but
@@ -465,7 +472,7 @@ console.log(primary, tertiary);
 console.log(primary, tertiary);
 
 const [selectedFood, selectedFruit, selectedColor] = favourites.select(2, 2, 2);
-console.log(selectedFood, selectedFruit, selectedColor);
+console.log(selectedFood, selectedFruit, selectedColor); // it gives the items in the second index
 
 // destructuring objects
 
@@ -671,30 +678,12 @@ console.log(reverseString("welcome"));
 function reversestr(str) {
   let string = "";
   for (let i = str.length - 1; i >= 0; i--) {
-    string.push(str);
+    string.push(str[i]);
   }
   return string;
 }
 
 console.log(reverseString("Paul"));
-
-// REVERSE A STRING BY RECURSION
-
-function reversestr(str1) {
-  let string1 = "";
-
-  if (string1 === "") {
-    return string1;
-  } else {
-    return string1.substring(1) + string1.charAt(0);
-  }
-}
-console.log(reverseString("raj"));
-
-function reverseString(str) {
-  return str === " " ? " " : str.substring(1) + str.charAt(0);
-}
-console.log(reverseString("water"));
 
 // Reverse a string using spread operator
 
@@ -705,13 +694,13 @@ console.log(revName);
 // Remove white spacs in a string
 
 const colors = "      blue    &    black   ";
-console.log(colors.trim());
-console.log(colors.trimStart());
-console.log(colors.trimEnd());
+console.log(colors.trim()); // removes spaces at the start and end
+console.log(colors.trimStart()); // removes spaces at the start
+console.log(colors.trimEnd()); // removes spaces at the end
 
 const phrase = "this is    a      girl";
-console.log(phrase.replace(" ", ""));
-console.log(phrase.replaceAll(" ", ""));
+console.log(phrase.replace(" ", "")); // replaces only the first character that matches the condition
+console.log(phrase.replaceAll(" ", "")); // replaces all the characters that matches the condition
 
 const question = "Where is france?";
 const remSpaces = question.replace(/\s+/g, ""); //also /\s/g, ""
@@ -760,7 +749,7 @@ const equalityArr = function () {
 equalityArr();
 
 // ANAGRAM PROBLEM
-
+// anagram : a word can be scrambled to form another word
 const anagramPrblm = function (str1, str2) {
   const anagram = function (str) {
     return str.toLowerCase().split("").sort().join();
@@ -1631,3 +1620,147 @@ function isArrayBool(array) {
 console.log(isArrayBool([1, 0, 0, 0, 1])); // true
 console.log(isArrayBool([1])); // true
 console.log(isArrayBool([2, 3, 0])); // false
+
+// remove duplicate elements from ArrayList
+
+const sampleArr = [1, 2, 3, 4, 1, 2, 3, 7, 5, 8, 4, 6, 9, 1];
+const nonduplicates = new Set([...sampleArr]);
+console.log(nonduplicates);
+const dups = [...new Set(sampleArr)];
+console.log(dups);
+
+const originals = function (arr) {
+  const original = arr.filter((el, index) => arr.indexOf(el) === index);
+
+  return original;
+};
+console.log(originals(sampleArr));
+
+const originalArr = function (arr) {
+  let unique = [];
+  arr.forEach((el) => {
+    if (!unique.includes(el)) {
+      unique.push(el);
+    }
+  });
+
+  return unique;
+};
+console.log(originalArr(sampleArr));
+
+const originalArray = function (arr) {
+  let unique = arr.reduce((acc, curr) => {
+    if (!acc.includes(curr)) {
+      acc.push(curr);
+    }
+    return acc;
+  }, []);
+
+  return unique;
+};
+console.log(originalArray(sampleArr));
+
+const entry1 = "girl1 ";
+const result1 = entry1.repeat(3);
+console.log(result1);
+// to check whether one string is a rotation of another
+
+let checkRotatedString = function (str1, str2) {
+  let str1Arr = str1.split("").sort().toString();
+  let str2Arr = str2.split("").sort().toString(); // without converting the array into a string we will get false
+  console.log(str1Arr, str2Arr);
+
+  str1Arr === str2Arr
+    ? console.log("Rotation string")
+    : console.log("Not a rotation string");
+};
+checkRotatedString("LearningJavascript", "JavascriptLearning"); // true
+checkRotatedString("LearningJavascript", "JavascriptLearnings"); // false
+
+//INTERSECTION OF TWO ARRAYS (COMMON ELEMENTS)
+let commonArr1 = [1, 3, 6, 7, 8, 9];
+let commonArr2 = [3, 6, 8, 1, 4];
+console.log(...commonArr1, ...commonArr2);
+
+const commonElements = function (arr1, arr2) {
+  let newArr = [];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] == arr2[j]) {
+        newArr.push(arr1[i]);
+      }
+    }
+  }
+  return newArr;
+};
+console.log(commonElements(commonArr1, commonArr2));
+
+// TO CHECK WHETHER A INPUT IS A NUMBER OR NOT
+
+const checkInputNum = function (input) {
+  typeof input == "number"
+    ? console.log("numeric")
+    : console.log("not numeric");
+};
+checkInputNum(12345); // integer
+checkInputNum("12345"); // integer
+checkInputNum("123dfg"); // not an integer
+
+const checkNum = function (input) {
+  if (Number.isInteger(input)) {
+    console.log("integer");
+  } else {
+    console.log("not an integer");
+  }
+};
+checkInputNum(12345); // integer
+checkInputNum("12345"); // integer
+checkInputNum("123dfg"); // not an integer
+
+// reverse each word of a string
+let gnStr = "welcome to bangalore";
+let gnStrReverse = gnStr.split("").reverse().join("");
+console.log(gnStrReverse);
+
+const reverseGnString = function (str) {
+  let result = [];
+  let string = [...str];
+  for (let i = string.length - 1; i >= 0; i--) {
+    result.push(string[i]);
+  }
+  return result.join("");
+};
+console.log(reverseGnString(gnStr));
+
+// to remove zeros from non-zeros in an array
+
+let zeroArr = [0, 0, 9, 4, 5, 6, 0, 1, 2, 0, 0, 5, 0, 0, 2];
+const nonZeroArr = function (gnArr) {
+  let output = [];
+
+  for (let i = 0; i < gnArr.length; i++) {
+    if (gnArr[i] !== 0) {
+      output.push(gnArr[i]);
+    }
+  }
+  return output;
+};
+console.log(nonZeroArr(zeroArr));
+
+// to separate zeros from non-zeros in an array
+
+let zeroArr1 = [0, 0, 9, 4, 5, 6, 0, 1, 2, 0, 0, 5, 0, 0, 2];
+
+const separateArr = function (arr) {
+  let zeroArr = [];
+  let nonZeroArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      zeroArr.push(arr[i]);
+    } else {
+      nonZeroArr.push(arr[i]);
+    }
+  }
+  return nonZeroArr.concat(zeroArr);
+};
+console.log(separateArr(zeroArr1));
