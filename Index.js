@@ -1371,7 +1371,7 @@ console.log(personAccount.amountEntered); // we set 100 to the array
 
 // MATRIX PROBLEMS
 const repMatrix = function () {
-  let gnMatrix = [
+  const gnMatrix = [
     [1, 1, 1],
     [1, 1, 1],
     [1, 1, 1],
@@ -1394,7 +1394,7 @@ const repMatrix = function () {
 repMatrix();
 
 const repMatrix1 = function () {
-  let gnMatrix = [
+  const gnMatrix = [
     [1, 1, 1],
     [1, 1, 1],
     [1, 1, 1],
@@ -1415,12 +1415,12 @@ const repMatrix1 = function () {
 repMatrix1();
 
 //ADDITION OF TWO MATRIX
-let matA = [
+const matA = [
   [1, 1, 1],
   [2, 2, 2],
   [3, 3, 3],
 ];
-let matB = [
+const matB = [
   [4, 4, 4],
   [5, 5, 5],
   [6, 6, 6],
@@ -1442,13 +1442,13 @@ console.log(addMatrices(matA, matB));
 
 // subtraction of matrices
 
-let subMat1 = [
+const subMat1 = [
   [5, 5, 5],
   [4, 4, 4],
   [3, 3, 3],
 ];
 
-let subMat2 = [
+const subMat2 = [
   [3, 3, 3],
   [2, 2, 2],
   [1, 1, 1],
@@ -1468,13 +1468,13 @@ const subtractMatrices = function (mat1, mat2) {
 console.log(subtractMatrices(subMat1, subMat2));
 
 // multiplication of matrices
-let multiMat1 = [
+const multiMat1 = [
   [2, 3, 4],
   [5, 6, 7],
   [8, 9, 1],
 ];
 
-let multiMat2 = [
+const multiMat2 = [
   [2, 3, 1],
   [2, 3, 1],
   [2, 3, 1],
@@ -1501,9 +1501,9 @@ let transposeMat = [
 
 // transpose matrix
 const transposeMatrix = function (mat) {
-  let result = [];
+  const result = [];
   for (let i = 0; i < mat[0].length; i++) {
-    let newArr = [];
+    const newArr = [];
     for (let j = 0; j < mat.length; j++) {
       newArr.push(mat[j][i]);
     }
@@ -1516,7 +1516,7 @@ console.log(transposeMatrix(transposeMat));
 
 // count occurance of a string
 const countChar = function (str) {
-  let count = {};
+  const count = {};
   for (let i = 0; i < str.length; i++) {
     let char = str[i].toLowerCase();
     if (count[char] > 0) {
@@ -1574,14 +1574,14 @@ getPairs();
 //then you have to find continuous sub array in this array such that whose elements add up to 45.
 //In this case, {5, 31, 9} is such sub array whose elements add up to 45.
 
-let gnArr = [12, 5, 31, 9, 21, 8];
-let gnNumber = 45;
+const gnArr = [12, 5, 31, 9, 21, 8];
+const gnNumber = 45;
 const sum = (gnArr) => gnArr.reduce((a, b) => a + b); // total sum of the array
 // reduces the array into a single value
 const getArr = function (arr, num) {
-  let resArr = [];
+  const resArr = [];
   for (let i = 0; i < arr.length; i++) {
-    let arr1 = [];
+    const arr1 = [];
     for (let j = i; j < arr.length; j++) {
       arr1.push(arr[j]);
       //console.log(arr1);
@@ -1637,7 +1637,7 @@ const originals = function (arr) {
 console.log(originals(sampleArr));
 
 const originalArr = function (arr) {
-  let unique = [];
+  const unique = [];
   arr.forEach((el) => {
     if (!unique.includes(el)) {
       unique.push(el);
@@ -1649,7 +1649,7 @@ const originalArr = function (arr) {
 console.log(originalArr(sampleArr));
 
 const originalArray = function (arr) {
-  let unique = arr.reduce((acc, curr) => {
+  const unique = arr.reduce((acc, curr) => {
     if (!acc.includes(curr)) {
       acc.push(curr);
     }
@@ -1666,8 +1666,8 @@ console.log(result1);
 // to check whether one string is a rotation of another
 
 let checkRotatedString = function (str1, str2) {
-  let str1Arr = str1.split("").sort().toString();
-  let str2Arr = str2.split("").sort().toString(); // without converting the array into a string we will get false
+  const str1Arr = str1.split("").sort().toString();
+  const str2Arr = str2.split("").sort().toString(); // without converting the array into a string we will get false
   console.log(str1Arr, str2Arr);
 
   str1Arr === str2Arr
@@ -1678,12 +1678,12 @@ checkRotatedString("LearningJavascript", "JavascriptLearning"); // true
 checkRotatedString("LearningJavascript", "JavascriptLearnings"); // false
 
 //INTERSECTION OF TWO ARRAYS (COMMON ELEMENTS)
-let commonArr1 = [1, 3, 6, 7, 8, 9];
-let commonArr2 = [3, 6, 8, 1, 4];
+const commonArr1 = [1, 3, 6, 7, 8, 9];
+const commonArr2 = [3, 6, 8, 1, 4];
 console.log(...commonArr1, ...commonArr2);
 
 const commonElements = function (arr1, arr2) {
-  let newArr = [];
+  const newArr = [];
   for (let i = 0; i < arr1.length; i++) {
     for (let j = 0; j < arr2.length; j++) {
       if (arr1[i] == arr2[j]) {
@@ -1718,13 +1718,13 @@ checkInputNum("12345"); // integer
 checkInputNum("123dfg"); // not an integer
 
 // reverse each word of a string
-let gnStr = "welcome to bangalore";
-let gnStrReverse = gnStr.split("").reverse().join("");
+const gnStr = "welcome to bangalore";
+const gnStrReverse = gnStr.split("").reverse().join("");
 console.log(gnStrReverse);
 
 const reverseGnString = function (str) {
-  let result = [];
-  let string = [...str];
+  const result = [];
+  const string = [...str];
   for (let i = string.length - 1; i >= 0; i--) {
     result.push(string[i]);
   }
@@ -1736,7 +1736,7 @@ console.log(reverseGnString(gnStr));
 
 let zeroArr = [0, 0, 9, 4, 5, 6, 0, 1, 2, 0, 0, 5, 0, 0, 2];
 const nonZeroArr = function (gnArr) {
-  let output = [];
+  const output = [];
 
   for (let i = 0; i < gnArr.length; i++) {
     if (gnArr[i] !== 0) {
@@ -1752,8 +1752,8 @@ console.log(nonZeroArr(zeroArr));
 let zeroArr1 = [0, 0, 9, 4, 5, 6, 0, 1, 2, 0, 0, 5, 0, 0, 2];
 
 const separateArr = function (arr) {
-  let zeroArr = [];
-  let nonZeroArr = [];
+  const zeroArr = [];
+  const nonZeroArr = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === 0) {
       zeroArr.push(arr[i]);
@@ -1764,3 +1764,196 @@ const separateArr = function (arr) {
   return nonZeroArr.concat(zeroArr);
 };
 console.log(separateArr(zeroArr1));
+
+//  Decimal To Binary, Decimal To Octal And Decimal To HexaDecimal
+
+const decimalArr = [4, 8, 112, 67, 50];
+const binary = function (arr) {
+  return arr.map((el) => el.toString(2));
+};
+console.log(binary(decimalArr));
+
+const octal = function (arr) {
+  return arr.map((el) => el.toString(8));
+};
+console.log(octal(decimalArr));
+
+const hexaDecimal = function (arr) {
+  return arr.map((el) => el.toString(16));
+};
+console.log(hexaDecimal(decimalArr));
+
+//  to find all the leaders in an integer array
+//An element is said to be a leader if all the elements on it’s right side are smaller than it.
+//Rightmost element is always a leader.
+//For example, if {14, 9, 11, 7, 8, 5, 3} is the given array
+//then {14, 11, 8, 5, 3} are the leaders in this array.
+
+const leaderArr = [14, 9, 11, 7, 8, 5, 3];
+
+const leaders = function (arr) {
+  let maxFromRight = arr[leaderArr.length - 1];
+  const output = [maxFromRight];
+  for (let i = arr.length - 2; i >= 0; i--) {
+    if (maxFromRight < arr[i]) {
+      maxFromRight = arr[i];
+      output.unshift(maxFromRight); // adds at the beginning of the output array
+    }
+  }
+  console.log(output);
+};
+leaders(leaderArr);
+
+// selection sort of an array
+
+const arraySort1 = [4, 7, 1, 3, 9, 2];
+
+// ascending order
+const selectionSortAsc = function (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
+    }
+    if (i !== min) {
+      [arr[i], arr[min]] = [arr[min], arr[i]];
+    }
+  }
+  return arr;
+};
+console.log(selectionSortAsc(arraySort1));
+
+//descending order
+const selectionSortDes = function (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let max = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] > arr[max]) {
+        max = j;
+      }
+    }
+    if (i !== max) {
+      [arr[i], arr[max]] = [arr[max], arr[i]];
+    }
+  }
+  return arr;
+};
+console.log(selectionSortDes(arraySort1));
+
+//reverse untill you get a palindrome
+
+function reverseNumber(n) {
+  return parseInt(n.toString().split("").reverse().join(""));
+}
+
+function isPalindrome(num) {
+  return num === reverseNumber(num);
+}
+
+function reverseAndAddToPalindrome(n) {
+  let iterations = 0;
+  let num = n;
+
+  while (!isPalindrome(num)) {
+    if (iterations >= 1000) {
+      // Limiting the number of iterations to avoid infinite loops
+      return "No palindrome exists";
+    }
+
+    num += reverseNumber(num);
+    iterations++;
+  }
+
+  return num;
+}
+
+console.log(reverseAndAddToPalindrome(195)); // Output: 9339
+console.log(reverseAndAddToPalindrome(265)); // Output: 45254
+console.log(reverseAndAddToPalindrome(196)); // Output: No palindrome exists
+
+//Reverse the string with preserving the position of spaces
+//example, if “I Am Not String” is the given string
+//then the reverse of this string with preserving the position of spaces is “g ni rtS toNmAI”.
+
+const stringRev = "I Am Not String";
+
+const stringReverseWithPositions = function (stg) {
+  const newRevStr = stg.replaceAll(" ", "").split("").reverse();
+  //console.log(newRevStr);
+  for (let i = 0; i < newRevStr.length; i++) {
+    if (stg[i] === " ") {
+      newRevStr.splice(i, 0, " "); // 0 replaces 0 elements
+    }
+  }
+
+  return newRevStr.join("");
+};
+console.log(stringReverseWithPositions(stringRev));
+
+//Roman equivalent of a decimal number
+
+const toRoman = (num, result = "") => {
+  const map = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
+  };
+  for (key in map) {
+    if (num >= map[key]) {
+      if (num !== 0) return toRoman(num - map[key], result + key);
+    }
+  }
+  return result;
+};
+console.log(toRoman(402)); // CDII
+console.log(toRoman(3000)); // MMM
+console.log(toRoman(93)); // XCIII
+console.log(toRoman(4)); // IV
+
+// percentage of uppercase, lowercase, digits and special characters in a string
+
+const findPercentage = function (characters) {
+  let count = 0;
+  const elements = characters.split("");
+  for (let j = 0; j < elements.length; j++) {
+    if (elements !== 0) {
+      count++;
+    }
+  }
+  //console.log(count);
+  let upper = 0;
+  let lower = 0,
+    digits = 0,
+    special = 0;
+
+  for (let i = 0; i < characters.length; i++) {
+    if (characters[i] >= "A" && characters[i] <= "Z") {
+      upper++;
+    } else if (characters[i] >= "a" && characters[i] <= "z") {
+      lower++;
+    } else if (characters[i] >= "0" && characters[i] <= "9") {
+      digits++;
+    } else {
+      special++;
+    }
+  }
+
+  console.log("Upper case letters: " + (upper / count) * 100 + "%");
+  console.log("Lower case letters : " + (lower / count) * 100 + "%");
+  console.log("Number : " + (digits / count) * 100 + "%");
+  console.log("Special characters : " + (special / count) * 100 + "%");
+};
+
+findPercentage("ASDas31@#09^&44y");
