@@ -1957,3 +1957,30 @@ const findPercentage = function (characters) {
 };
 
 findPercentage("ASDas31@#09^&44y");
+
+//  Find missing number in an array
+// If n = 8, then array ‘a’ will have 7 elements in the range from 1 to 8.
+//For example {1, 4, 5, 3, 7, 8, 6}. One number will be missing in ‘a’ (2 in this case).
+//You have to find out that missing number.
+
+const missingArr = [1, 4, 5, 3, 7, 8, 6];
+const findMissingNum = function (arr) {
+  const min = Math.min(...arr); // will find the highest num
+  const max = Math.max(...arr); // will find the lowest num
+  let missingNum = [];
+  for (let i = min; i <= max; i++) {
+    if (!arr.includes(i)) {
+      missingNum.push(i);
+    }
+  }
+
+  return missingNum;
+};
+console.log(findMissingNum(missingArr));
+
+//Generate random numbers
+const randomNumber = Math.floor(Math.random() * 100);
+console.log(randomNumber); // gives a random number from 1 to 99
+
+const getRandom = Math.floor(Math.random() * 5) + 1;
+console.log(getRandom);
