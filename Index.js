@@ -1156,7 +1156,7 @@ console.log(Math.max(1, 2, 3, 4, "5"));
 console.log(Math.max(1, 2, 3, 4, "5px"));
 console.log(Math.min(1, 2, 3, 4, 5));
 
-// calc rdius of  a circle
+// calc radius of  a circle
 
 console.log(Math.PI * Number.parseFloat("10px") ** 2);
 
@@ -1894,7 +1894,7 @@ console.log(stringReverseWithPositions(stringRev));
 
 //Roman equivalent of a decimal number
 
-const toRoman = (num, result = "") => {
+const toRoman = (num, result = " ") => {
   const map = {
     M: 1000,
     CM: 900,
@@ -1983,4 +1983,165 @@ const randomNumber = Math.floor(Math.random() * 100);
 console.log(randomNumber); // gives a random number from 1 to 99
 
 const getRandom = Math.floor(Math.random() * 5) + 1;
-console.log(getRandom);
+console.log(getRandom); // gives a random number from 1 to 5
+
+// sort a string into uppercase, lowercase, numbers and special characters
+
+const myString = "A54h AW!*&";
+
+const arrangeChar = function (string) {
+  let upperStr = [],
+    lowerStr = [],
+    numStr = [],
+    specialStr = [];
+
+  let str = string.split("");
+  console.log(str);
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] >= "A" && str[i] <= "Z") {
+      upperStr.push(str[i]);
+    } else if (str[i] >= "a" && str[i] <= "z") {
+      lowerStr.push(str[i]);
+    } else if (str[i] >= "0" && str[i] <= "9") {
+      numStr.push(str[i]);
+    } else {
+      specialStr.push(str[i]);
+    }
+  }
+  return upperStr.concat(lowerStr).concat(numStr).concat(specialStr);
+};
+
+console.log(arrangeChar(myString));
+
+// longest substring without repeating characters in a string
+// if “javaconceptoftheday” is the input string,
+//then the longest substring without repeating or duplicate characters is “oftheday”
+
+const string1 = "javaconceptoftheday";
+
+function lengthOfLongestSubstring(str) {
+  const map = new Map();
+  let max = 0;
+  let left = 0;
+  for (let right = 0; right < str.length; right++) {
+    const char = str[right];
+    if (map.get(char) >= left) left = map.get(char) + 1;
+    else max = Math.max(max, right - left + 1);
+    map.set(char, right);
+  }
+  return max;
+}
+console.log(lengthOfLongestSubstring(string1));
+
+// count occurrences of each element in an array
+//if {12, 9, 12, 9, 10, 9, 10, 11} is the input array,
+//then the count of occurrences of each element is {12:2, 9:3, 10:2, 11:1}.
+
+const arrayCount = [12, 9, 12, 9, 10, 9, 10, 11];
+const countArr = function (arr) {
+  let count = {};
+  for (let num of arr) {
+    count[num] = count[num] ? count[num] + 1 : 1;
+  }
+  return count;
+};
+
+console.log(countArr(arrayCount));
+// for in loop is used to access an object
+// for of loop is used to access an element in an array
+
+// reverse an array
+const exArr = [12, 9, 21, 17, 33, 7];
+
+const revArr = function (arr) {
+  let output = [];
+  for (let i = 0; i < arr.length; i++) {
+    output.unshift(arr[i]); // output.push(arr[i].pop()) can also be used
+  }
+  return output;
+};
+console.log(revArr(exArr));
+
+const variableSwap = function () {
+  let black = "yes";
+  let white = "no";
+  if ((black = "yes") && (white = "no")) {
+    black = "no";
+    white = "yes";
+  }
+  return black + " " + white;
+};
+
+console.log(variableSwap());
+
+// remove duplicates from an array
+let duplicateArray = [4, 3, 2, 4, 9, 2];
+const realArr = new Set(duplicateArray);
+console.log(realArr); // returns an object
+
+const removeDuplicates = function (arr) {
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!newArray.includes(arr[i])) {
+      newArray.push(arr[i]);
+    }
+  }
+  return newArray;
+};
+console.log(removeDuplicates(duplicateArray));
+
+// most repeated char in a string
+const schoolName = "St.Dominics";
+
+const mostRepChar = function (str) {
+  let char = str.toLowerCase().split("").sort();
+  //console.log(char);
+  const charMap = {};
+  let max = 0;
+  maxinumChar = "";
+
+  for (let el of char) {
+    if (charMap[el]) {
+      charMap[el]++;
+    } else {
+      charMap[el] = 1;
+    }
+  }
+
+  for (let el in charMap) {
+    if (charMap[el] > max) {
+      max = charMap[el];
+      maxinumChar = el;
+    }
+  }
+  return "the character " + maxinumChar + " is repeated " + max + " times";
+};
+console.log(mostRepChar(schoolName));
+
+// most repeated element in an array
+
+const myFavArr = [
+  1, 7, 3, 66, 9, 1, 4, 9, 7, 5, 6, 3, 4, 0, 8, 1, 5, 7, 7, 9, 2, 3, 1,
+];
+
+const maxArrElement = function (arr) {
+  let arrMap = {};
+  maxEl = 0;
+  max = 0;
+
+  for (el of arr) {
+    if (arrMap[el]) {
+      arrMap[el]++;
+    } else {
+      arrMap[el] = 1;
+    }
+  }
+  for (el in arrMap) {
+    if (arrMap[el] > max) {
+      max = arrMap[el];
+      maxEl = el;
+    }
+  }
+  return "the number " + maxEl + " is repeated " + max + " times";
+};
+console.log(maxArrElement(myFavArr));
