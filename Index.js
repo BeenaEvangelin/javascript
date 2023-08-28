@@ -447,7 +447,7 @@ const b = arr[1];
 const c = arr[2];
 const [x, y, z] = arr;
 console.log(x, y, z);
-// breaking the array into separate variables
+// Array destructuring is breaking the array into separate variables
 // the original array isn't distroyed. We are just unpacking the array
 console.log(arr);
 
@@ -641,7 +641,7 @@ console.log(letters.has("L")); // true if present and false if absent
 console.log(letters.has("Z")); // similar to includes method
 letters.add("W");
 letters.delete("D");
-console.log(letters);
+console.log(letters); // adds and deletes the required character
 // letters.clear()    clears all items of the set
 
 for (const letter of letters) {
@@ -816,7 +816,7 @@ console.log(airline.slice(airline.indexOf("A"), airline.indexOf(-1)));
 console.log(airline.slice(4, 6 + 1)); // this includes the end value in the slice method
 console.log(airline.slice(4, -2)); // - gives the last index
 console.log(new String("Beena")); // it gives an object
-console.log(typeof new String("Beena"));
+console.log(typeof new String("Beena")); //object
 console.log(new String("Beena").slice(2));
 console.log(typeof new String("Beena").slice(2));
 const string = "this is a beautiful place in chennai";
@@ -919,10 +919,11 @@ greetPerson("hello")("brother");
 // PROBLEMS  SUM OF ALL DIGITS OF A GIVEN NUMBER
 
 let gnNum = 1234;
+
 let sum1 = 0;
 while (gnNum) {
   sum1 += gnNum % 10; // reminder is 4 then 3 then 2 and then last digit is < 10
-  gnNum = Math.floor(gnNum / 10); //9/ 10  = 0.9 , floor value is 1 so 9 +1 = 10
+  gnNum = Math.floor(gnNum / 10); // 4+3+2 = 9/ 10  = 0.9 , floor value is 1 so 9 +1 = 10
 }
 
 console.log(sum1);
@@ -2145,3 +2146,51 @@ const maxArrElement = function (arr) {
   return "the number " + maxEl + " is repeated " + max + " times";
 };
 console.log(maxArrElement(myFavArr));
+
+// find number of characters,digits and special characters
+const mixedStr = "123ADNGUNbdybdmr8*%#%&*jhujbjghDESF12398";
+const numberOfelements = function (str) {
+  const el = str.split("").sort();
+  //console.log(el);
+  let uppercase = 0,
+    lowercase = 0,
+    digits = 0,
+    specialChar = 0;
+  for (let i = 0; i < el.length; i++) {
+    if (el[i] >= "0" && el[i] <= "9") {
+      digits++;
+    }
+    if (el[i] >= "a" && el[i] <= "z") {
+      lowercase++;
+    }
+    if (el[i] >= "A" && el[i] <= "Z") {
+      uppercase++;
+    } else {
+      specialChar++;
+    }
+  }
+
+  return `uppercase: ${uppercase}, lowercase: ${lowercase}, digits: ${digits}, specialChar: ${specialChar}`;
+};
+console.log(numberOfelements(mixedStr));
+
+// permutation of a string recursively
+
+const perArr = [1, 2, 3, 4];
+const permutation = function (arr) {
+  let resultArr = [];
+  if (arr.length === 0) return [];
+  if (arr.length === 1) return [arr];
+  for (let i = 0; i < arr.length; i++) {
+    const currElement = arr[i];
+    const otherElements = arr.slice(0, i).concat(arr.slice(i + 1));
+    const swappedEls = permutation(otherElements);
+
+    for (let j = 0; j < swappedEls.length; j++) {
+      const finalSwap = [currElement].concat(swappedEls[j]);
+      resultArr.push(finalSwap);
+    }
+  }
+  return resultArr;
+};
+console.log(permutation(perArr));
