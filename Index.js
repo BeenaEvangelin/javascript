@@ -2174,7 +2174,7 @@ const numberOfelements = function (str) {
 };
 console.log(numberOfelements(mixedStr));
 
-// permutation of a string recursively
+// permutation of an array recursively
 
 const perArr = [1, 2, 3, 4];
 const permutation = function (arr) {
@@ -2194,3 +2194,48 @@ const permutation = function (arr) {
   return resultArr;
 };
 console.log(permutation(perArr));
+
+// permutation of a string
+
+const perString = "fat";
+const indChar = perString.split("");
+console.log(indChar);
+const strPermutation = function (str) {
+  let resultStr = [];
+  if (str.length === 0) return [];
+  if (str.length === 1) return [str];
+
+  for (let i = 0; i < str.length; i++) {
+    const currentChar = str[i];
+    const otherChars = str.slice(0, i).concat(str.slice(i + 1));
+
+    const swappedstr = strPermutation(otherChars);
+
+    for (let j = 0; j < swappedstr.length; j++) {
+      const finalSwapStr = [currentChar].concat(swappedstr[j]);
+      resultStr.push(finalSwapStr);
+    }
+  }
+  return resultStr;
+};
+console.log(strPermutation(indChar));
+
+//Check number belongs to Fibonacci series or not
+
+const fibonnaciArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const inFibonnaciSeries = function (arr) {
+  const isPerfectSquare = function (x) {
+    let s = parseInt(Math.sqrt(x));
+    return s * s == x;
+  };
+  const isFibonnaci = function (n) {
+    return isPerfectSquare(5 * n * n + 4) || isPerfectSquare(5 * n * n - 4);
+  };
+
+  for (let i = 0; i <= fibonnaciArr.length; i++) {
+    isFibonnaci(i)
+      ? console.log(fibonnaciArr[i] + " is a fibonnaci number")
+      : console.log(fibonnaciArr[i] + " is not a fibonnaci number");
+  }
+};
+inFibonnaciSeries(fibonnaciArr);
