@@ -2239,3 +2239,41 @@ const inFibonnaciSeries = function (arr) {
   }
 };
 inFibonnaciSeries(fibonnaciArr);
+
+//First Repeated And Non-Repeated Character In A String.
+const exampleStr = "evangelin";
+
+const NonRepChar = function (str) {
+  const char = [...str];
+  let result = "";
+  let ctr = 0;
+  //console.log(strCharacters);
+  for (let i = 0; i < char.length; i++) {
+    ctr = 0;
+    for (let j = 0; j < char.length; j++) {
+      if (char[i] === char[j]) {
+        ctr += 1;
+      }
+    }
+    if (ctr < 2) {
+      result = char[i];
+      break;
+    }
+  }
+  return result + " is the first non repeated character";
+};
+console.log(NonRepChar(exampleStr));
+
+const repChar = function (str) {
+  const char = [...str];
+
+  for (let i = 0; i < char.length; i++) {
+    for (let j = i + 1; j < char.length; j++) {
+      if (char[i] === char[j]) {
+        return char[i] + " is the first repeated character";
+      }
+    }
+  }
+};
+
+console.log(repChar(exampleStr));
