@@ -2247,7 +2247,7 @@ const NonRepChar = function (str) {
   const char = [...str];
   let result = "";
   let ctr = 0;
-  //console.log(strCharacters);
+
   for (let i = 0; i < char.length; i++) {
     ctr = 0;
     for (let j = 0; j < char.length; j++) {
@@ -2277,3 +2277,87 @@ const repChar = function (str) {
 };
 
 console.log(repChar(exampleStr));
+
+//string to integer conversion
+
+const myFavNum = "12344";
+const numOfChoice = Number(myFavNum);
+console.log(numOfChoice, typeof numOfChoice);
+
+// integer to string conversion
+
+const favDigits = 9989;
+const myFavDigits = String(favDigits);
+console.log(myFavDigits, typeof myFavDigits);
+
+// remove an element at specific index from an array
+const index = 2;
+
+const dummyArr = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const elemenatedNum = dummyArr.splice(2, 1);
+console.log(dummyArr, elemenatedNum);
+
+//remove specific element from an array
+const dummyArr1 = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+const n1 = 7;
+const realArray = function (arr, n) {
+  let realArr = [];
+  let removedElement = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == n) {
+      removedElement = arr[i];
+    } else {
+      realArr.push(arr[i]);
+    }
+  }
+  return realArr;
+};
+
+console.log(realArray(dummyArr1, n1));
+
+//remove multiple specific elements at different indices from an array
+//remove all occurrences of an element in an array
+
+const dummyArr2 = [9, 8, 7, 6, 5, 7, 3, 2, 7];
+const n2 = 7;
+const realArray1 = function (arr, n) {
+  let realArr = [];
+  let removedElement = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == n) {
+      removedElement = arr[i];
+    } else {
+      realArr.push(arr[i]);
+    }
+  }
+  return realArr;
+};
+
+console.log(realArray1(dummyArr2, n2));
+
+//remove multiple elements at different indices from an array
+const dummyArr3 = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+const n3 = [9, 8, 1];
+const realArray2 = function (arr, n) {
+  let realArr = [];
+  let removedElement = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (n.includes(arr[i])) {
+      removedElement.push(arr[i]);
+    } else {
+      realArr.push(arr[i]);
+    }
+  }
+  return realArr;
+};
+
+console.log(realArray2(dummyArr3, n3));
+
+//count the number of spaces
+const spaceStr = "I am a girl";
+
+const spaces = spaceStr.split(" ").length - 1;
+// split(' ') splits each word
+// no of words are the length, length - 1 gives the spaces
+console.log(spaces);
