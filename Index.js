@@ -2361,3 +2361,28 @@ const spaces = spaceStr.split(" ").length - 1;
 // split(' ') splits each word
 // no of words are the length, length - 1 gives the spaces
 console.log(spaces);
+
+// Array Rotation Program
+const arrToRotate = [1, 2, 3, 4, 5];
+const rotateArr = function (arr) {
+  arr.unshift(arr.pop());
+  return arr;
+};
+
+console.log(rotateArr(arrToRotate));
+
+//Array rotation means you need to rotate an array in left or right direction by ‘n’ positions.
+//For example, if {1, 2, 3, 4, 5, 6, 7} is an input array
+//then rotating this array in the left direction by two positions will give {3, 4, 5, 6, 7, 1, 2}
+//and rotating in the right direction by two positions will give {6, 7, 1, 2, 3, 4, 5}.
+
+const arrayToRotate = [1, 2, 3, 4, 5, 6, 7];
+const rotateArray1 = function (nums, k) {
+  for (let i = 0; i < k; i++) {
+    nums.unshift(nums.pop());
+  }
+
+  return nums;
+};
+console.log(rotateArray1(arrayToRotate, 5)); //{3, 4, 5, 6, 7, 1, 2}
+console.log(rotateArray1(arrayToRotate, 4)); // {6, 7, 1, 2, 3, 4, 5}
