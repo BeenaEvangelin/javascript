@@ -2386,3 +2386,22 @@ const rotateArray1 = function (nums, k) {
 };
 console.log(rotateArray1(arrayToRotate, 5)); //{3, 4, 5, 6, 7, 1, 2}
 console.log(rotateArray1(arrayToRotate, 4)); // {6, 7, 1, 2, 3, 4, 5}
+
+//reverse a sentence word by word in Java
+const revStr = "welcome to bangalore";
+const revStrWordByWord = function (str) {
+  const strByWord = revStr.split(" ").reverse();
+  console.log(strByWord);
+};
+revStrWordByWord(revStr);
+
+const revStrWordByWord1 = function (str) {
+  let resultStr = [];
+  debugger;
+  const splitStr = revStr.split(" ");
+  for (let i = 0; i < splitStr.length; i++) {
+    resultStr.push(splitStr.pop());
+  }
+  return resultStr;
+};
+console.log(revStrWordByWord1(revStr));
