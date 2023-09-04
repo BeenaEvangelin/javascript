@@ -2397,11 +2397,42 @@ revStrWordByWord(revStr);
 
 const revStrWordByWord1 = function (str) {
   let resultStr = [];
-  debugger;
+
   const splitStr = revStr.split(" ");
-  for (let i = 0; i < splitStr.length; i++) {
+  for (let i = splitStr.length - 1; i >= 0; i--) {
     resultStr.push(splitStr.pop());
   }
-  return resultStr;
+  return String(resultStr).replaceAll(",", " ");
 };
 console.log(revStrWordByWord1(revStr));
+
+//How to remove all vowels from a string
+const alphabets = "abcdefghijklmnopqrstuvwxyz";
+
+const removeVowels = function (str) {
+  return str.replace(/[aeiou]/gi, "");
+};
+
+console.log(removeVowels(alphabets));
+
+//How to find the most frequent element in an array
+const favNumbers = [1, 2, 4, 3, 4, 1, 2, 3, 2, 3, 1, 2, 2, 3];
+
+const frequentElement = function (arr) {
+  let maxCount = 0;
+  let maxCountElement;
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j]) count++;
+    }
+
+    if (count > maxCount) {
+      maxCount = count;
+      maxCountElement = arr[i];
+    }
+  }
+  return `the number ${maxCountElement} has a frequency of ${maxCount}`;
+};
+
+console.log(frequentElement(favNumbers));
