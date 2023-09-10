@@ -2436,3 +2436,31 @@ const frequentElement = function (arr) {
 };
 
 console.log(frequentElement(favNumbers));
+// union and intersection of multiple arrays
+//union
+
+const arrayA = [1, 2, 3, 4];
+const arrayB = [2, 3, 4];
+const arrayC = [3, 4];
+const arrayD = [4];
+
+const digits = arrayA + arrayB + arrayC + arrayD;
+const unionArr = function () {
+  let unions = digits.replaceAll(",", "");
+  return unions.split("");
+};
+console.log(unionArr(digits));
+
+//intersection
+const reqArr = [arrayA, arrayB, arrayC, arrayD];
+
+const intersectArr = function (arr) {
+  const result = arr.reduce((acc, curr) =>
+    acc.filter((num) => curr.includes(num))
+  );
+
+  return result;
+};
+console.log(intersectArr(reqArr));
+
+//Difference between two dates
