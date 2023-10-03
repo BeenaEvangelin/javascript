@@ -2464,3 +2464,45 @@ const intersectArr = function (arr) {
 console.log(intersectArr(reqArr));
 
 //Difference between two dates
+let date1 = new Date("1/10/2023");
+let date2 = new Date("1/20/2023");
+const diffOfDays = function (a, b) {
+  const difference = parseInt((b - a) / (1000 * 60 * 60 * 24));
+  return difference;
+};
+console.log(diffOfDays(date1, date2));
+
+//frequency of digits in a number
+let phoneNo = 9150862359;
+let phDigits = String(phoneNo);
+let digitArr = [...phDigits];
+
+const frequencyOfDigits = function (arr) {
+  let count = {};
+  for (let num of arr) {
+    count[num] = count[num] ? count[num] + 1 : 1;
+  }
+  return count;
+};
+
+console.log(frequencyOfDigits(digitArr));
+
+//check whether a matrix is symmetrical
+//find the transpose of a matrix
+let gnMat = [
+  [1, 3, 1],
+  [-1, 1, 4],
+  [2, 1, 0],
+];
+
+const symmetricalMat = function (mat) {
+  let array = [];
+  for (let i = 0; i < mat.length; i++) {
+    array.push([]);
+    for (let j = 0; j < mat.length; j++) {
+      array[i].push(mat[j][i]);
+    }
+  }
+  return array;
+};
+console.log(symmetricalMat(gnMat));
