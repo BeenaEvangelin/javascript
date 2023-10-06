@@ -2544,3 +2544,64 @@ const hollowSqPattern = function () {
   console.log(string);
 };
 hollowSqPattern();
+//right triangle
+
+const rtTrianglePatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 0; j < n - i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < i; k++) {
+      string += "*";
+    }
+
+    string += "\n";
+  }
+  console.log(string);
+};
+rtTrianglePatt();
+
+const leftTrianglePatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += "*";
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+leftTrianglePatt();
+
+//downTriangle
+const downTrianglePatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < n - i; j++) {
+      string += "*";
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+downTrianglePatt();
+
+const downTrianglePatt1 = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += " ";
+    }
+    for (let k = n; k > i; k--) {
+      string += "*";
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+downTrianglePatt1();
