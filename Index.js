@@ -2643,3 +2643,43 @@ const pyramidPatt = function () {
   console.log(string);
 };
 pyramidPatt();
+
+const RevPyramidPatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * (n - i) - 1; k++) {
+      string += "*";
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+RevPyramidPatt();
+
+const hollowPyramidPatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < n - i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * i - 1; k++) {
+      if (i === 0 || i === n) {
+        string += "*";
+      } else {
+        if (k === 0 || k === 2 * i - 2) {
+          string += "*";
+        } else {
+          string += " ";
+        }
+      }
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+hollowPyramidPatt();
