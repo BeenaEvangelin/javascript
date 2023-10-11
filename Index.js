@@ -2778,3 +2778,71 @@ const leftPascalPatt = function () {
   console.log(string);
 };
 leftPascalPatt();
+
+const alphaLeftTri = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += String.fromCharCode(j + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+
+alphaLeftTri();
+
+const aplhaLeftRowTri = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += String.fromCharCode(i - 1 + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+aplhaLeftRowTri();
+
+const alphaTri = function () {
+  let n = 5;
+  let string = "";
+  let count = 0;
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += String.fromCharCode(count + 65);
+      count++;
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+alphaTri();
+
+const invertAlphaTri = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < n - i + 1; j++) {
+      string += String.fromCharCode(j + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+invertAlphaTri();
+
+const invertRevAlpha = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 0; j < n - i + 1; j++) {
+      string += String.fromCharCode(n - 1 - j + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+invertRevAlpha();
