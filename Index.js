@@ -210,7 +210,7 @@ const person2 = {
 };
 
 for (let j = 0; j < 2; j++) {
-  console.log(person2[j]);
+  console.log(person2[j]); // gives undefined
 }
 
 const years = [1972, 1974, 1999, 2003];
@@ -602,7 +602,7 @@ console.log(reverse([1, 2, 3, 4, 5]));
 let n = 4;
 let str = "";
 
-for (let i = 0; i <= n; i++) {
+for (let i = 1; i <= n; i++) {
   for (let j = 0; j < n - i; j++) {
     str += " ";
   }
@@ -941,7 +941,7 @@ addNumber(12345);
 
 const addTheDigits = (num) => {
   const numArr = num.toString().split("");
-  let sum = numArr.reduce((a, b) => Number(a) + Number(b));
+  let sum = numArr.reduce((acc, curr) => Number(acc) + Number(curr));
 
   return sum;
 };
@@ -1012,7 +1012,7 @@ console.log(array2.at(-1)); // at method removes the square brackets automatical
 const subject = "english";
 console.log(subject.at(2));
 
-const numberArr1 = [1, 2, 3, 6, 7, 9, 3, 4, -2, -5, -9, 8, -1];
+const numberArr1 = [1, 2, 3, 6, 7, 9, 3, 4, -2, -3, -4, 8, -1];
 // forEach & forOF
 console.log("**************forEach******************");
 
@@ -2846,3 +2846,50 @@ const invertRevAlpha = function () {
   console.log(string);
 };
 invertRevAlpha();
+
+const invertAlphaRowTri = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 0; j < n - i + 1; j++) {
+      string += String.fromCharCode(n - i - j + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+invertAlphaRowTri();
+
+const pyramidAlphaRowPatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < n - i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * i - 1; k++) {
+      string += String.fromCharCode(k + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+pyramidAlphaRowPatt();
+
+const pyramidAlphaPatt = function () {
+  let n = 5;
+  let string = "";
+  let count = 0;
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < n - i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * i - 1; k++) {
+      string += String.fromCharCode(count + 65);
+      count++;
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+pyramidAlphaPatt();
