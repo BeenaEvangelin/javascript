@@ -1104,8 +1104,8 @@ console.log(Numbers.flat(2));
 // flatmap combines the flat and map method together
 // FILL METHOD
 const fillArr = [1, 4, 2, 4, 6, 8, 1, 7, 9];
-console.log(fillArr.fill(1));
-const arrfill = fillArr.fill(0, 2, 4);
+console.log(fillArr.fill(1)); //fills every element with 1
+const arrfill = fillArr.fill(0, 2, 4); // fills only 2 & 4 with 0
 console.log(arrfill);
 // FROM METHOD
 const x1 = new Array(5);
@@ -1153,7 +1153,7 @@ console.log(27 ** (1 / 3)); //cube rt
 // max and min
 
 console.log(Math.max(1, 2, 3, 4, 5));
-console.log(Math.max(1, 2, 3, 4, "5"));
+console.log(Math.max(1, 2, 3, 4, "5")); //treats the string as a number
 console.log(Math.max(1, 2, 3, 4, "5px"));
 console.log(Math.min(1, 2, 3, 4, 5));
 
@@ -1182,7 +1182,7 @@ console.log(Math.trunc(-5.2));
 console.log(Math.floor(-5.8)); // floor is better than trunc as it is more stable in rounding the negative integers
 
 // rounding decimals
-console.log((5.5).toFixed(0));
+console.log((5.5).toFixed(0)); //add decimals represent the number of digits after the decimal point
 console.log((5.5).toFixed(3));
 console.log((5.5987).toFixed(2));
 // to fixed generally gives a string so you can convert using
@@ -2893,3 +2893,88 @@ const pyramidAlphaPatt = function () {
   console.log(string);
 };
 pyramidAlphaPatt();
+
+const invertedAlphaRowPatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * (n - i) - 1; k++) {
+      string += String.fromCharCode(k + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+invertedAlphaRowPatt();
+
+const invertAlphaPattern = function () {
+  let n = 5;
+  let string = "";
+  let count = 0;
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * (n - i) - 1; k++) {
+      string += String.fromCharCode(count + 65);
+      count++;
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+
+invertAlphaPattern();
+
+const diamondAlphaPatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < n - i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * i - 1; k++) {
+      string += String.fromCharCode(k + 65);
+    }
+    string += "\n";
+  }
+  for (let i = 1; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * (n - i) - 1; k++) {
+      string += String.fromCharCode(k + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+diamondAlphaPatt();
+
+const hourglassAlphaPatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * (n - i) - 1; k++) {
+      string += String.fromCharCode(k + 65);
+    }
+    string += "\n";
+  }
+  for (let i = 2; i <= n; i++) {
+    for (let j = 0; j < n - i; j++) {
+      string += " ";
+    }
+    for (let k = 0; k < 2 * i - 1; k++) {
+      string += String.fromCharCode(k + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+hourglassAlphaPatt();
