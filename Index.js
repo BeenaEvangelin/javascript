@@ -2359,7 +2359,7 @@ const spaceStr = "I am a girl";
 
 const spaces = spaceStr.split(" ").length - 1;
 // split(' ') splits each word
-// no of words are the length, length - 1 gives the spaces
+// no of letters are the length, length - 1 gives the spaces
 console.log(spaces);
 
 // Array Rotation Program
@@ -2387,7 +2387,7 @@ const rotateArray1 = function (nums, k) {
 console.log(rotateArray1(arrayToRotate, 5)); //{3, 4, 5, 6, 7, 1, 2}
 console.log(rotateArray1(arrayToRotate, 4)); // {6, 7, 1, 2, 3, 4, 5}
 
-//reverse a sentence word by word in Java
+//reverse a sentence word by word in JavaScript
 const revStr = "welcome to bangalore";
 const revStrWordByWord = function (str) {
   const strByWord = revStr.split(" ").reverse();
@@ -2744,7 +2744,7 @@ const rightPascalPatt = function () {
     }
     string += "\n";
   }
-  for (let i = 0; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     for (let j = 0; j < n - i; j++) {
       string += "*";
     }
@@ -2978,3 +2978,22 @@ const hourglassAlphaPatt = function () {
   console.log(string);
 };
 hourglassAlphaPatt();
+
+const alphaPascalPattern = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      string += String.fromCharCode(j + 65);
+    }
+    string += "\n";
+  }
+  for (let i = 1; i <= n; i++) {
+    for (let j = 0; j < n - i; j++) {
+      string += String.fromCharCode(j + 65);
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+alphaPascalPattern();
