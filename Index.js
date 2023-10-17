@@ -3023,3 +3023,100 @@ const triangleNumRowPattern = function () {
   console.log(string);
 };
 triangleNumRowPattern();
+
+//1. program to print the reverse of a given string
+let inputString = "codecode";
+const revString = function (str) {
+  if (str.length == 0 || str.length >= 100) {
+    console.log("Enter a valid string");
+  } else {
+    let myStr = [...str];
+
+    let result = [];
+
+    for (let i = myStr.length - 1; i >= 0; i--) {
+      result.push(myStr[i]);
+    }
+    console.log(result.join(""));
+  }
+};
+revString(inputString);
+
+//2. check a number is prime or not
+const primeCheck = function (num) {
+  let output = "";
+  if (num === 1) {
+    output = "1 is neither prime or composite number";
+  } else if (num > 1) {
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) {
+        output = "No";
+        break;
+      } else {
+        output = "Yes";
+      }
+    }
+  }
+
+  return output;
+};
+console.log(primeCheck(3));
+console.log(primeCheck(4));
+
+//3.given an array of numbers, arrange them to form the largest value
+let givenArr3 = [54, 546, 548, 60];
+const largestArr = function (arr) {
+  let MaxArr = givenArr.sort();
+  let output = [];
+  for (let i = MaxArr.length - 1; i >= 0; i--) {
+    if (MaxArr[i] >= 1 || MaxArr[i] <= 1000) {
+      output.push(MaxArr[i]);
+    }
+  }
+  return output.join("");
+};
+console.log(largestArr(givenArr3));
+
+//4. print the reverse of a number
+
+const revNum = function (num) {
+  let result = [];
+
+  if (num < 1 || num > 10000) {
+    return "enter a valid number";
+  }
+  let digits = num.toString().split("");
+
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] !== 0) {
+      result.push(digits[i]);
+    }
+  }
+
+  return Number(result.join(""));
+};
+console.log(revNum(988));
+
+//5.Find the maximum and minimum element in an array
+
+const findMaxAndMin = function (arr) {
+  let minValue = Math.min(...arr);
+  let maxValue = Math.max(...arr);
+  return `${maxValue} ${minValue}`;
+};
+console.log(findMaxAndMin(givenArr3));
+
+const findMaxandMin1 = function (arr) {
+  let minimum = 1000000;
+  let maximum = 1;
+  for (let num of arr) {
+    if (num > maximum) {
+      maximum = num;
+    }
+    if (num < minimum) {
+      minimum = num;
+    }
+  }
+  return `${maximum} ${minimum}`;
+};
+console.log(findMaxandMin1(givenArr3));
