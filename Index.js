@@ -1460,7 +1460,7 @@ const subtractMatrices = function (mat1, mat2) {
   for (let i = 0; i < mat1.length; i++) {
     newMat[i] = [];
     for (let j = 0; j < mat1.length; j++) {
-      newMat[i][j] = subMat1[i][j] - subMat2[i][j];
+      newMat[i][j] = mat1[i][j] - mat2[i][j];
     }
   }
   return newMat;
@@ -1583,7 +1583,7 @@ const getArr = function (arr, num) {
   const resArr = [];
   for (let i = 0; i < arr.length; i++) {
     const arr1 = [];
-    for (let j = i; j < arr.length; j++) {
+    for (let j = i + 1; j < arr.length; j++) {
       arr1.push(arr[j]);
       //console.log(arr1);
       // each element is pushed into the arr1 array
@@ -3130,8 +3130,34 @@ const triangleNumPatt = function () {
       string += count;
       count++;
     }
-    string += " \n";
+    string += "\n";
   }
   console.log(string);
 };
 triangleNumPatt();
+
+const invTriColAlphaPatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 0; i <= n; i++) {
+    for (let j = 1; j < n - i + 1; j++) {
+      string += j;
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+invTriColAlphaPatt();
+
+const invertTriReverseNumPatt = function () {
+  let n = 5;
+  let string = "";
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n - i + 1; j++) {
+      string += n - j + 1;
+    }
+    string += "\n";
+  }
+  console.log(string);
+};
+invertTriReverseNumPatt();
