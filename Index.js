@@ -3187,3 +3187,25 @@ const invertTriangleDecrementPatt2 = function () {
   console.log(string);
 };
 invertTriangleDecrementPatt2();
+
+//reverse each word in a string
+const sentence = "welcome to chennai";
+
+const reverseStr = function (str) {
+  let revArr = [];
+  let result = [];
+  let revInRev = [];
+
+  let words = str.split("");
+  for (let i = words.length - 1; i >= 0; i--) {
+    result.push(words[i]);
+  }
+
+  revArr = result.join("");
+  let reverseArr = revArr.split(" ");
+  for (let j = reverseArr.length - 1; j >= 0; j--) {
+    revInRev.push(reverseArr[j]);
+  }
+  return revInRev.join(" ");
+};
+console.log(reverseStr(sentence));
