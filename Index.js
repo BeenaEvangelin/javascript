@@ -1843,7 +1843,7 @@ const selectionSortDes = function (arr) {
 };
 console.log(selectionSortDes(arraySort1));
 
-//reverse untill you get a palindrome
+//reverse and add untill you get a palindrome
 
 function reverseNumber(n) {
   return parseInt(n.toString().split("").reverse().join(""));
